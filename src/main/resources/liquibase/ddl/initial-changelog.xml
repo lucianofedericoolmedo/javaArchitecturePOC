@@ -1,0 +1,2986 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="sebax (generated)" id="1461184345199-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-2">
+        <createTable tableName="alquileres">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_despacho" type="VARCHAR(255)"/>
+            <column name="de_planta" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-3">
+        <createTable tableName="alquileres_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN"/>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="de_planta" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-4">
+        <createTable tableName="atributos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-5">
+        <createTable tableName="atributos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-6">
+        <createTable tableName="atributos_valor">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+            <column name="atributo" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-7">
+        <createTable tableName="atributos_valor_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+            <column name="atributo" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-8">
+        <createTable tableName="camiones">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="dni" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="referencia_camion" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-9">
+        <createTable tableName="camiones_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="dni" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="referencia_camion" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-12">
+        <createTable tableName="clientes">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="abono" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="codigo_postal" type="VARCHAR(255)"/>
+            <column name="cuit" type="VARCHAR(255)"/>
+            <column name="direccion" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="fax" type="VARCHAR(255)"/>
+            <column name="nombre_fantasia" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="pagina_web" type="VARCHAR(255)"/>
+            <column name="razon_social" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="tipo_condicionpago_id" type="VARCHAR(255)"/>
+            <column name="localidad_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tipo_posicionfiscal_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-13">
+        <createTable tableName="clientes_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="abono" type="FLOAT8"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="codigo_postal" type="VARCHAR(255)"/>
+            <column name="cuit" type="VARCHAR(255)"/>
+            <column name="direccion" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="fax" type="VARCHAR(255)"/>
+            <column name="nombre_fantasia" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="pagina_web" type="VARCHAR(255)"/>
+            <column name="razon_social" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="tipo_condicionpago_id" type="VARCHAR(255)"/>
+            <column name="localidad_id" type="VARCHAR(255)"/>
+            <column name="tipo_posicionfiscal_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-16">
+        <createTable tableName="clientes_sucursales">
+            <column name="clientes" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sucursales" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-17">
+        <createTable tableName="clientes_sucursales_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="clientes" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sucursales" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-18">
+        <createTable tableName="codigos_de_barras">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero_de_bulto" type="VARCHAR(255)"/>
+            <column name="tipo_comprobante" type="VARCHAR(255)"/>
+            <column name="comprobante" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-19">
+        <createTable tableName="codigos_de_barras_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero_de_bulto" type="VARCHAR(255)"/>
+            <column name="tipo_comprobante" type="VARCHAR(255)"/>
+            <column name="comprobante" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-20">
+        <createTable tableName="contrato_items">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="excedente" type="FLOAT8"/>
+            <column name="contrato" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-21">
+        <createTable tableName="contrato_items_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="excedente" type="FLOAT8"/>
+            <column name="contrato" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-22">
+        <createTable tableName="contratos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="excedente" type="FLOAT8"/>
+            <column name="fecha_desde" type="timestamp"/>
+            <column name="fecha_hasta" type="timestamp"/>
+            <column name="oblea" type="VARCHAR(255)"/>
+            <column name="valor" type="FLOAT8"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="tipo_contrato" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-23">
+        <createTable tableName="contratos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="excedente" type="FLOAT8"/>
+            <column name="fecha_desde" type="timestamp"/>
+            <column name="fecha_hasta" type="timestamp"/>
+            <column name="oblea" type="VARCHAR(255)"/>
+            <column name="valor" type="FLOAT8"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="tipo_contrato" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-24">
+        <createTable tableName="cuentas_corriente">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="estado" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-25">
+        <createTable tableName="cuentas_corriente_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="estado" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-26">
+        <createTable tableName="custom_revision_entity">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="custom_revision_entityPK"/>
+            </column>
+            <column name="timestamp" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ipaddress" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-27">
+        <createTable tableName="despachos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-28">
+        <createTable tableName="despachos_alquileres">
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="alquileres" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-29">
+        <createTable tableName="despachos_alquileres_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="alquileres" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-30">
+        <createTable tableName="despachos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-31">
+        <createTable tableName="despachos_prestamos">
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prestamos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-32">
+        <createTable tableName="despachos_prestamos_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prestamos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-33">
+        <createTable tableName="despachos_remitos_camion">
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="remitos_camion" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-34">
+        <createTable tableName="despachos_remitos_camion_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="remitos_camion" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-35">
+        <createTable tableName="despachos_remitos_clientes">
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="remitos_clientes" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-36">
+        <createTable tableName="despachos_remitos_clientes_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="despachos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="remitos_clientes" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-37">
+        <createTable tableName="devoluciones">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-38">
+        <createTable tableName="devoluciones_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN"/>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-39">
+        <createTable tableName="documentos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filename" type="VARCHAR(255)"/>
+            <column name="path" type="VARCHAR(255)"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-40">
+        <createTable tableName="documentos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="filename" type="VARCHAR(255)"/>
+            <column name="path" type="VARCHAR(255)"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-41">
+        <createTable tableName="entidades">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="identificador" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-42">
+        <createTable tableName="entidades_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="identificador" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-43">
+        <createTable tableName="entidades_productos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="entidad" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-44">
+        <createTable tableName="entidades_productos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="entidad" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-45">
+        <createTable tableName="firmas">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="apellido" type="VARCHAR(255)"/>
+            <column name="fecha_hora" type="date"/>
+            <column name="hostname" type="VARCHAR(255)"/>
+            <column name="ipaddress" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="usuario" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-46">
+        <createTable tableName="firmas_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="apellido" type="VARCHAR(255)"/>
+            <column name="fecha_hora" type="date"/>
+            <column name="hostname" type="VARCHAR(255)"/>
+            <column name="ipaddress" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="usuario" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-47">
+        <createTable tableName="items_alquiler">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="cantidad_devuelta" type="FLOAT8"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-48">
+        <createTable tableName="items_alquiler_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="cantidad_devuelta" type="FLOAT8"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-49">
+        <createTable tableName="items_devolucion">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-50">
+        <createTable tableName="items_devolucion_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-51">
+        <createTable tableName="items_orden_lavado">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="peso" type="INT"/>
+            <column name="cliente" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="producto" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sucursal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-52">
+        <createTable tableName="items_orden_lavado_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="peso" type="INT"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="sucursal" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-53">
+        <createTable tableName="items_prestamo">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-54">
+        <createTable tableName="items_prestamo_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-55">
+        <createTable tableName="items_remito_entrega">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-56">
+        <createTable tableName="items_remito_entrega_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-57">
+        <createTable tableName="items_remito_entrega_camion">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-58">
+        <createTable tableName="items_remito_entrega_camion_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-59">
+        <createTable tableName="items_remito_retiro">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-60">
+        <createTable tableName="items_remito_retiro_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="bulto" type="INT"/>
+            <column name="cantidad" type="FLOAT8"/>
+            <column name="cerrado" type="BOOLEAN"/>
+            <column name="codigo_barra_prenda" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_creacion" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="remito" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-61">
+        <createTable tableName="lavadoras">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="descripcion" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-62">
+        <createTable tableName="lavadoras_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="descripcion" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-63">
+        <createTable tableName="lavadoras_programas">
+            <column name="lavadoras" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programas" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-64">
+        <createTable tableName="lavadoras_programas_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lavadoras" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programas" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-65">
+        <createTable tableName="localidades">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-66">
+        <createTable tableName="localidades_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-67">
+        <createTable tableName="movimientoscc">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="saldo" type="FLOAT8"/>
+            <column name="tipo_de_movimiento" type="INT"/>
+            <column name="cuenta_corriente" type="VARCHAR(255)"/>
+            <column name="item" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-68">
+        <createTable tableName="movimientoscc_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="saldo" type="FLOAT8"/>
+            <column name="tipo_de_movimiento" type="INT"/>
+            <column name="cuenta_corriente" type="VARCHAR(255)"/>
+            <column name="item" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-69">
+        <createTable tableName="ordenes_lavado">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha" type="VARCHAR(255)"/>
+            <column name="hora_fin" type="VARCHAR(255)"/>
+            <column name="hora_inicio" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="lavadora_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="programa_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-70">
+        <createTable tableName="ordenes_lavado_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN"/>
+            <column name="fecha" type="VARCHAR(255)"/>
+            <column name="hora_fin" type="VARCHAR(255)"/>
+            <column name="hora_inicio" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="lavadora_id" type="VARCHAR(255)"/>
+            <column name="programa_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-71">
+        <createTable tableName="ordenes_lavado_items">
+            <column name="ordenes_lavado" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="items" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-72">
+        <createTable tableName="ordenes_lavado_items_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ordenes_lavado" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="items" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-73">
+        <createTable tableName="organizaciones">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-74">
+        <createTable tableName="organizaciones_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-75">
+        <createTable tableName="permisos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-76">
+        <createTable tableName="permisos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-77">
+        <createTable tableName="prestamos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_despacho" type="VARCHAR(255)"/>
+            <column name="de_planta" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-78">
+        <createTable tableName="prestamos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN"/>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="de_planta" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-79">
+        <createTable tableName="productos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="descripcion" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="peso" type="FLOAT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="verificado" type="BOOLEAN"/>
+            <column name="producto_id" type="VARCHAR(255)"/>
+            <column name="tipo_producto_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-80">
+        <createTable tableName="productos_atributos">
+            <column name="producto_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="atributo_valor_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-81">
+        <createTable tableName="productos_atributos_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="producto_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="atributo_valor_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-82">
+        <createTable tableName="productos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="descripcion" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="peso" type="FLOAT4"/>
+            <column name="verificado" type="BOOLEAN"/>
+            <column name="producto_id" type="VARCHAR(255)"/>
+            <column name="tipo_producto_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-83">
+        <createTable tableName="productos_sobrenombres">
+            <column name="productos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sobrenombres" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-84">
+        <createTable tableName="productos_sobrenombres_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="productos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sobrenombres" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-85">
+        <createTable tableName="programas">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="descripcion" type="VARCHAR(255)"/>
+            <column name="duracion" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-86">
+        <createTable tableName="programas_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="descripcion" type="VARCHAR(255)"/>
+            <column name="duracion" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-87">
+        <createTable tableName="remitos_entrega">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_despacho" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-88">
+        <createTable tableName="remitos_entrega_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN"/>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-89">
+        <createTable tableName="remitos_entrega_camion">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_despacho" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-90">
+        <createTable tableName="remitos_entrega_camion_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN"/>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-91">
+        <createTable tableName="remitos_retiro">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="fecha_hora_de_despacho" type="VARCHAR(255)"/>
+            <column name="fecha_hora" type="timestamp"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="peso" type="FLOAT4"/>
+            <column name="sucursal" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-92">
+        <createTable tableName="remitos_retiro_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="anulado" type="BOOLEAN"/>
+            <column name="fecha_hora_de_cierre" type="timestamp"/>
+            <column name="lugar" type="VARCHAR(255)"/>
+            <column name="numero" type="VARCHAR(255)"/>
+            <column name="numero_autoincremental" type="INT"/>
+            <column name="tipo" type="VARCHAR(255)"/>
+            <column name="camion" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="fecha_hora" type="timestamp"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="peso" type="FLOAT4"/>
+            <column name="sucursal" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-93">
+        <createTable tableName="revchanges">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entityname" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-94">
+        <createTable tableName="roles">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-95">
+        <createTable tableName="roles_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-96">
+        <createTable tableName="roles_permisos">
+            <column name="roles" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permisos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-97">
+        <createTable tableName="roles_permisos_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="roles" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permisos" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-98">
+        <createTable tableName="saldos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="saldo" type="FLOAT8"/>
+            <column name="cuenta_corriente" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-99">
+        <createTable tableName="saldos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="saldo" type="FLOAT8"/>
+            <column name="cuenta_corriente" type="VARCHAR(255)"/>
+            <column name="producto" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-100">
+        <createTable tableName="sobrenombres">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-101">
+        <createTable tableName="sobrenombres_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-102">
+        <createTable tableName="sucursales">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo_postal" type="VARCHAR(255)"/>
+            <column name="direccion" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="fax" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="localidad_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-103">
+        <createTable tableName="sucursales_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo_postal" type="VARCHAR(255)"/>
+            <column name="direccion" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="fax" type="VARCHAR(255)"/>
+            <column name="nombre" type="VARCHAR(255)"/>
+            <column name="observacion" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="localidad_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-104">
+        <createTable tableName="tipo_condiciones_pago">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-105">
+        <createTable tableName="tipo_condiciones_pago_aud">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-106">
+        <createTable tableName="tipo_estructuras">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-107">
+        <createTable tableName="tipo_estructuras_aud">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-108">
+        <createTable tableName="tipo_hormigones">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-109">
+        <createTable tableName="tipo_hormigones_aud">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-110">
+        <createTable tableName="tipo_materiales">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-111">
+        <createTable tableName="tipo_materiales_aud">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-112">
+        <createTable tableName="tipo_posiciones_fiscal">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-113">
+        <createTable tableName="tipo_posiciones_fiscal_aud">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-114">
+        <createTable tableName="tipo_producto">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-115">
+        <createTable tableName="tipo_producto_aud">
+            <column name="tipo_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-116">
+        <createTable tableName="tipos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-117">
+        <createTable tableName="tipos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-118">
+        <createTable tableName="tipos_entidades">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-119">
+        <createTable tableName="tipos_entidades_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="codigo" type="VARCHAR(255)"/>
+            <column name="valor" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-120">
+        <createTable tableName="tiposcontratos">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-121">
+        <createTable tableName="tiposcontratos_aud">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-122">
+        <createTable tableName="users">
+            <column name="tipo" type="VARCHAR(5)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="fecha_nacimiento" type="date"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="genero" type="INT"/>
+            <column name="imagen" type="VARCHAR(255)"/>
+            <column name="impresora" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="middle_name" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="token" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+            <column name="password" type="BYTEA"/>
+            <column name="password_temp" type="BOOLEAN"/>
+            <column name="salt" type="BYTEA"/>
+            <column name="ldap_username" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="organizacion_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-123">
+        <createTable tableName="users_aud">
+            <column name="tipo" type="VARCHAR(5)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+            <column name="fecha_actualizacion" type="timestamp"/>
+            <column name="fecha_creacion" type="timestamp"/>
+            <column name="state" type="INT"/>
+            <column name="usuario_actualizo_id" type="VARCHAR(255)"/>
+            <column name="usuario_creacion_id" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="fecha_nacimiento" type="date"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="genero" type="INT"/>
+            <column name="imagen" type="VARCHAR(255)"/>
+            <column name="impresora" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="middle_name" type="VARCHAR(255)"/>
+            <column name="telefono" type="VARCHAR(255)"/>
+            <column name="token" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+            <column name="cliente" type="VARCHAR(255)"/>
+            <column name="organizacion_id" type="VARCHAR(255)"/>
+            <column name="ldap_username" type="VARCHAR(255)"/>
+            <column name="password" type="BYTEA"/>
+            <column name="password_temp" type="BOOLEAN"/>
+            <column name="salt" type="BYTEA"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-124">
+        <createTable tableName="users_roles">
+            <column name="users" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="roles" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-125">
+        <createTable tableName="users_roles_aud">
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="users" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="roles" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="SMALLINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-128">
+        <addPrimaryKey columnNames="clientes, sucursales" tableName="clientes_sucursales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-129">
+        <addPrimaryKey columnNames="despachos, alquileres" tableName="despachos_alquileres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-130">
+        <addPrimaryKey columnNames="despachos, prestamos" tableName="despachos_prestamos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-131">
+        <addPrimaryKey columnNames="despachos, remitos_camion" tableName="despachos_remitos_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-132">
+        <addPrimaryKey columnNames="despachos, remitos_clientes" tableName="despachos_remitos_clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-133">
+        <addPrimaryKey columnNames="lavadoras, programas" tableName="lavadoras_programas"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-134">
+        <addPrimaryKey columnNames="ordenes_lavado, items" tableName="ordenes_lavado_items"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-135">
+        <addPrimaryKey columnNames="producto_id, atributo_valor_id" tableName="productos_atributos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-136">
+        <addPrimaryKey columnNames="productos, sobrenombres" tableName="productos_sobrenombres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-137">
+        <addPrimaryKey columnNames="roles, permisos" tableName="roles_permisos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-138">
+        <addPrimaryKey columnNames="users, roles" tableName="users_roles"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-139">
+        <addPrimaryKey columnNames="id" constraintName="atributosPK" tableName="atributos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-140">
+        <addPrimaryKey columnNames="id, rev" constraintName="atributos_audPK" tableName="atributos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-141">
+        <addPrimaryKey columnNames="id" constraintName="atributos_valorPK" tableName="atributos_valor"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-142">
+        <addPrimaryKey columnNames="id, rev" constraintName="atributos_valor_audPK" tableName="atributos_valor_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-143">
+        <addPrimaryKey columnNames="id" constraintName="camionesPK" tableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-144">
+        <addPrimaryKey columnNames="id, rev" constraintName="camiones_audPK" tableName="camiones_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-146">
+        <addPrimaryKey columnNames="id" constraintName="clientesPK" tableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-147">
+        <addPrimaryKey columnNames="id, rev" constraintName="clientes_audPK" tableName="clientes_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-149">
+        <addPrimaryKey columnNames="rev, clientes, sucursales" constraintName="clientes_sucursales_audPK" tableName="clientes_sucursales_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-150">
+        <addPrimaryKey columnNames="id" constraintName="codigos_de_barrasPK" tableName="codigos_de_barras"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-151">
+        <addPrimaryKey columnNames="id, rev" constraintName="codigos_de_barras_audPK" tableName="codigos_de_barras_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-152">
+        <addPrimaryKey columnNames="id" constraintName="comprobanteAPK" tableName="alquileres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-153">
+        <addPrimaryKey columnNames="id" constraintName="comprobanteDPK" tableName="devoluciones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-154">
+        <addPrimaryKey columnNames="id" constraintName="comprobantePPK" tableName="prestamos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-155">
+        <addPrimaryKey columnNames="id" constraintName="comprobanteREPK" tableName="remitos_entrega"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-156">
+        <addPrimaryKey columnNames="id" constraintName="comprobanteRECPK" tableName="remitos_entrega_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-157">
+        <addPrimaryKey columnNames="id" constraintName="comprobanteRRPK" tableName="remitos_retiro"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-158">
+        <addPrimaryKey columnNames="id, rev" constraintName="comprobanteA_aPK" tableName="alquileres_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-159">
+        <addPrimaryKey columnNames="id, rev" constraintName="comprobanteD_aPK" tableName="devoluciones_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-160">
+        <addPrimaryKey columnNames="id, rev" constraintName="comprobanteP_aPK" tableName="prestamos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-161">
+        <addPrimaryKey columnNames="id, rev" constraintName="comprobanteRE_aPK" tableName="remitos_entrega_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-162">
+        <addPrimaryKey columnNames="id, rev" constraintName="comprobanteREC_aPK" tableName="remitos_entrega_camion_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-163">
+        <addPrimaryKey columnNames="id, rev" constraintName="comprobanteRR_aPK" tableName="remitos_retiro_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-164">
+        <addPrimaryKey columnNames="id" constraintName="contrato_itemsPK" tableName="contrato_items"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-165">
+        <addPrimaryKey columnNames="id, rev" constraintName="contrato_items_audPK" tableName="contrato_items_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-166">
+        <addPrimaryKey columnNames="id" constraintName="contratosPK" tableName="contratos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-167">
+        <addPrimaryKey columnNames="id, rev" constraintName="contratos_audPK" tableName="contratos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-168">
+        <addPrimaryKey columnNames="id" constraintName="cuentas_corrientePK" tableName="cuentas_corriente"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-169">
+        <addPrimaryKey columnNames="id, rev" constraintName="cuentas_corriente_audPK" tableName="cuentas_corriente_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-170">
+        <addPrimaryKey columnNames="id" constraintName="despachosPK" tableName="despachos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-171">
+        <addPrimaryKey columnNames="rev, despachos, alquileres" constraintName="despachos_alquileres_audPK" tableName="despachos_alquileres_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-172">
+        <addPrimaryKey columnNames="id, rev" constraintName="despachos_audPK" tableName="despachos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-173">
+        <addPrimaryKey columnNames="rev, despachos, prestamos" constraintName="despachos_prestamos_audPK" tableName="despachos_prestamos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-174">
+        <addPrimaryKey columnNames="rev, despachos, remitos_camion" constraintName="despachos_remitos_camion_audPK" tableName="despachos_remitos_camion_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-175">
+        <addPrimaryKey columnNames="rev, despachos, remitos_clientes" constraintName="despachos_remitos_clientes_audPK" tableName="despachos_remitos_clientes_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-176">
+        <addPrimaryKey columnNames="id" constraintName="documentosPK" tableName="documentos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-177">
+        <addPrimaryKey columnNames="id, rev" constraintName="documentos_audPK" tableName="documentos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-178">
+        <addPrimaryKey columnNames="id" constraintName="entidadesPK" tableName="entidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-179">
+        <addPrimaryKey columnNames="id, rev" constraintName="entidades_audPK" tableName="entidades_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-180">
+        <addPrimaryKey columnNames="id" constraintName="entidades_productosPK" tableName="entidades_productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-181">
+        <addPrimaryKey columnNames="id, rev" constraintName="entidades_productos_audPK" tableName="entidades_productos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-182">
+        <addPrimaryKey columnNames="id" constraintName="firmasPK" tableName="firmas"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-183">
+        <addPrimaryKey columnNames="id, rev" constraintName="firmas_audPK" tableName="firmas_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-184">
+        <addPrimaryKey columnNames="id" constraintName="item_comprobaAPK" tableName="items_alquiler"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-185">
+        <addPrimaryKey columnNames="id, rev" constraintName="item_comprobaAUPK" tableName="items_alquiler_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-186">
+        <addPrimaryKey columnNames="id" constraintName="item_comprobaDPK" tableName="items_devolucion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-187">
+        <addPrimaryKey columnNames="id, rev" constraintName="item_comprobaDUPK" tableName="items_devolucion_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-188">
+        <addPrimaryKey columnNames="id" constraintName="item_comprobaPPK" tableName="items_prestamo"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-189">
+        <addPrimaryKey columnNames="id, rev" constraintName="item_comprobaPUPK" tableName="items_prestamo_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-190">
+        <addPrimaryKey columnNames="id" constraintName="item_comprobaREPK" tableName="items_remito_entrega"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-191">
+        <addPrimaryKey columnNames="id, rev" constraintName="item_comprobaREUPK" tableName="items_remito_entrega_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-192">
+        <addPrimaryKey columnNames="id" constraintName="item_comprobaRECPK" tableName="items_remito_entrega_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-193">
+        <addPrimaryKey columnNames="id, rev" constraintName="item_comprobaRECUPK" tableName="items_remito_entrega_camion_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-194">
+        <addPrimaryKey columnNames="id" constraintName="item_comprobaRRPK" tableName="items_remito_retiro"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-195">
+        <addPrimaryKey columnNames="id, rev" constraintName="item_comprobaRRUPK" tableName="items_remito_retiro_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-196">
+        <addPrimaryKey columnNames="id" constraintName="items_orden_lavadoPK" tableName="items_orden_lavado"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-197">
+        <addPrimaryKey columnNames="id, rev" constraintName="items_orden_lavado_audPK" tableName="items_orden_lavado_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-198">
+        <addPrimaryKey columnNames="id" constraintName="lavadorasPK" tableName="lavadoras"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-199">
+        <addPrimaryKey columnNames="id, rev" constraintName="lavadoras_audPK" tableName="lavadoras_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-200">
+        <addPrimaryKey columnNames="rev, lavadoras, programas" constraintName="lavadoras_programas_audPK" tableName="lavadoras_programas_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-201">
+        <addPrimaryKey columnNames="id" constraintName="localidadesPK" tableName="localidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-202">
+        <addPrimaryKey columnNames="id, rev" constraintName="localidades_audPK" tableName="localidades_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-203">
+        <addPrimaryKey columnNames="id" constraintName="movimientosccPK" tableName="movimientoscc"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-204">
+        <addPrimaryKey columnNames="id, rev" constraintName="movimientoscc_audPK" tableName="movimientoscc_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-205">
+        <addPrimaryKey columnNames="id" constraintName="ordenes_lavadoPK" tableName="ordenes_lavado"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-206">
+        <addPrimaryKey columnNames="id, rev" constraintName="ordenes_lavado_audPK" tableName="ordenes_lavado_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-207">
+        <addPrimaryKey columnNames="rev, ordenes_lavado, items" constraintName="ordenes_lavado_items_audPK" tableName="ordenes_lavado_items_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-208">
+        <addPrimaryKey columnNames="id" constraintName="organizacionesPK" tableName="organizaciones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-209">
+        <addPrimaryKey columnNames="id, rev" constraintName="organizaciones_audPK" tableName="organizaciones_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-210">
+        <addPrimaryKey columnNames="id" constraintName="permisosPK" tableName="permisos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-211">
+        <addPrimaryKey columnNames="id, rev" constraintName="permisos_audPK" tableName="permisos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-212">
+        <addPrimaryKey columnNames="id" constraintName="productosPK" tableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-213">
+        <addPrimaryKey columnNames="rev, producto_id, atributo_valor_id" constraintName="productos_atributos_audPK" tableName="productos_atributos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-214">
+        <addPrimaryKey columnNames="id, rev" constraintName="productos_audPK" tableName="productos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-215">
+        <addPrimaryKey columnNames="rev, productos, sobrenombres" constraintName="productos_sobrenombres_audPK" tableName="productos_sobrenombres_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-216">
+        <addPrimaryKey columnNames="id" constraintName="programasPK" tableName="programas"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-217">
+        <addPrimaryKey columnNames="id, rev" constraintName="programas_audPK" tableName="programas_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-218">
+        <addPrimaryKey columnNames="id" constraintName="rolesPK" tableName="roles"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-219">
+        <addPrimaryKey columnNames="id, rev" constraintName="roles_audPK" tableName="roles_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-220">
+        <addPrimaryKey columnNames="rev, roles, permisos" constraintName="roles_permisos_audPK" tableName="roles_permisos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-221">
+        <addPrimaryKey columnNames="id" constraintName="saldosPK" tableName="saldos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-222">
+        <addPrimaryKey columnNames="id, rev" constraintName="saldos_audPK" tableName="saldos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-223">
+        <addPrimaryKey columnNames="id" constraintName="sobrenombresPK" tableName="sobrenombres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-224">
+        <addPrimaryKey columnNames="id, rev" constraintName="sobrenombres_audPK" tableName="sobrenombres_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-225">
+        <addPrimaryKey columnNames="id" constraintName="sucursalesPK" tableName="sucursales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-226">
+        <addPrimaryKey columnNames="id, rev" constraintName="sucursales_audPK" tableName="sucursales_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-227">
+        <addPrimaryKey columnNames="tipo_id" constraintName="tipo_condiciones_pagoPK" tableName="tipo_condiciones_pago"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-228">
+        <addPrimaryKey columnNames="tipo_id, rev" constraintName="tipo_condiciones_pago_audPK" tableName="tipo_condiciones_pago_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-229">
+        <addPrimaryKey columnNames="tipo_id" constraintName="tipo_estructurasPK" tableName="tipo_estructuras"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-230">
+        <addPrimaryKey columnNames="tipo_id, rev" constraintName="tipo_estructuras_audPK" tableName="tipo_estructuras_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-231">
+        <addPrimaryKey columnNames="tipo_id" constraintName="tipo_hormigonesPK" tableName="tipo_hormigones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-232">
+        <addPrimaryKey columnNames="tipo_id, rev" constraintName="tipo_hormigones_audPK" tableName="tipo_hormigones_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-233">
+        <addPrimaryKey columnNames="tipo_id" constraintName="tipo_materialesPK" tableName="tipo_materiales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-234">
+        <addPrimaryKey columnNames="tipo_id, rev" constraintName="tipo_materiales_audPK" tableName="tipo_materiales_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-235">
+        <addPrimaryKey columnNames="tipo_id" constraintName="tipo_posiciones_fiscalPK" tableName="tipo_posiciones_fiscal"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-236">
+        <addPrimaryKey columnNames="tipo_id, rev" constraintName="tipo_posiciones_fiscal_audPK" tableName="tipo_posiciones_fiscal_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-237">
+        <addPrimaryKey columnNames="tipo_id" constraintName="tipo_productoPK" tableName="tipo_producto"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-238">
+        <addPrimaryKey columnNames="tipo_id, rev" constraintName="tipo_producto_audPK" tableName="tipo_producto_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-239">
+        <addPrimaryKey columnNames="id" constraintName="tiposPK" tableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-240">
+        <addPrimaryKey columnNames="id, rev" constraintName="tipos_audPK" tableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-241">
+        <addPrimaryKey columnNames="id" constraintName="tipos_entidadesPK" tableName="tipos_entidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-242">
+        <addPrimaryKey columnNames="id, rev" constraintName="tipos_entidades_audPK" tableName="tipos_entidades_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-243">
+        <addPrimaryKey columnNames="id" constraintName="tiposcontratosPK" tableName="tiposcontratos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-244">
+        <addPrimaryKey columnNames="id, rev" constraintName="tiposcontratos_audPK" tableName="tiposcontratos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-245">
+        <addPrimaryKey columnNames="id" constraintName="usersPK" tableName="users"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-246">
+        <addPrimaryKey columnNames="id, rev" constraintName="users_audPK" tableName="users_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-247">
+        <addPrimaryKey columnNames="rev, users, roles" constraintName="users_roles_audPK" tableName="users_roles_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-248">
+        <addUniqueConstraint columnNames="sucursales" tableName="clientes_sucursales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-249">
+        <addUniqueConstraint columnNames="alquileres" tableName="despachos_alquileres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-250">
+        <addUniqueConstraint columnNames="prestamos" tableName="despachos_prestamos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-251">
+        <addUniqueConstraint columnNames="remitos_camion" tableName="despachos_remitos_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-252">
+        <addUniqueConstraint columnNames="remitos_clientes" tableName="despachos_remitos_clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-253">
+        <addUniqueConstraint columnNames="items" tableName="ordenes_lavado_items"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-254">
+        <addUniqueConstraint columnNames="sobrenombres" tableName="productos_sobrenombres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-255">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ALQUILERESID_COL" tableName="alquileres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-256">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ATRIBUTOSID_COL" tableName="atributos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-257">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ATRIBUTOS_VALORID_COL" tableName="atributos_valor"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-258">
+        <addUniqueConstraint columnNames="id" constraintName="UC_CAMIONESID_COL" tableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-259">
+        <addUniqueConstraint columnNames="codigo" constraintName="UC_CLIENTESCODIGO_COL" tableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-260">
+        <addUniqueConstraint columnNames="id" constraintName="UC_CLIENTESID_COL" tableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-261">
+        <addUniqueConstraint columnNames="id" constraintName="UC_CODIGOS_DE_BARRASID_COL" tableName="codigos_de_barras"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-262">
+        <addUniqueConstraint columnNames="id" constraintName="UC_CONTRATOSID_COL" tableName="contratos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-263">
+        <addUniqueConstraint columnNames="id" constraintName="UC_CONTRATO_ITEMSID_COL" tableName="contrato_items"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-264">
+        <addUniqueConstraint columnNames="id" constraintName="UC_CUENTAS_CORRIENTEID_COL" tableName="cuentas_corriente"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-265">
+        <addUniqueConstraint columnNames="id" constraintName="UC_DESPACHOSID_COL" tableName="despachos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-266">
+        <addUniqueConstraint columnNames="id" constraintName="UC_DEVOLUCIONESID_COL" tableName="devoluciones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-267">
+        <addUniqueConstraint columnNames="id" constraintName="UC_DOCUMENTOSID_COL" tableName="documentos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-268">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ENTIDADESID_COL" tableName="entidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-269">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ENTIDADES_PRODUCTOSID_COL" tableName="entidades_productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-270">
+        <addUniqueConstraint columnNames="id" constraintName="UC_FIRMASID_COL" tableName="firmas"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-271">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ITEMS_ALQUILERID_COL" tableName="items_alquiler"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-272">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ITEMS_DEVOLUCIONID_COL" tableName="items_devolucion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-273">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ITEMS_ORDEN_LAVADOID_COL" tableName="items_orden_lavado"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-274">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ITEMS_PRESTAMOID_COL" tableName="items_prestamo"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-275">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ITEMS_REMITO_ENTREGAID_COL" tableName="items_remito_entrega"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-276">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ITEMS_REMITO_ENTREGA_CAMIONID_COL" tableName="items_remito_entrega_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-277">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ITEMS_REMITO_RETIROID_COL" tableName="items_remito_retiro"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-278">
+        <addUniqueConstraint columnNames="id" constraintName="UC_LAVADORASID_COL" tableName="lavadoras"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-279">
+        <addUniqueConstraint columnNames="id" constraintName="UC_LOCALIDADESID_COL" tableName="localidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-280">
+        <addUniqueConstraint columnNames="id" constraintName="UC_MOVIMIENTOSCCID_COL" tableName="movimientoscc"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-281">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ORDENES_LAVADOID_COL" tableName="ordenes_lavado"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-282">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ORGANIZACIONESID_COL" tableName="organizaciones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-283">
+        <addUniqueConstraint columnNames="id" constraintName="UC_PERMISOSID_COL" tableName="permisos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-284">
+        <addUniqueConstraint columnNames="id" constraintName="UC_PRESTAMOSID_COL" tableName="prestamos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-285">
+        <addUniqueConstraint columnNames="id" constraintName="UC_PRODUCTOSID_COL" tableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-286">
+        <addUniqueConstraint columnNames="id" constraintName="UC_PROGRAMASID_COL" tableName="programas"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-287">
+        <addUniqueConstraint columnNames="id" constraintName="UC_REMITOS_ENTREGAID_COL" tableName="remitos_entrega"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-288">
+        <addUniqueConstraint columnNames="id" constraintName="UC_REMITOS_ENTREGA_CAMIONID_COL" tableName="remitos_entrega_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-289">
+        <addUniqueConstraint columnNames="id" constraintName="UC_REMITOS_RETIROID_COL" tableName="remitos_retiro"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-290">
+        <addUniqueConstraint columnNames="id" constraintName="UC_ROLESID_COL" tableName="roles"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-291">
+        <addUniqueConstraint columnNames="id" constraintName="UC_SALDOSID_COL" tableName="saldos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-292">
+        <addUniqueConstraint columnNames="id" constraintName="UC_SOBRENOMBRESID_COL" tableName="sobrenombres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-293">
+        <addUniqueConstraint columnNames="id" constraintName="UC_SUCURSALESID_COL" tableName="sucursales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-294">
+        <addUniqueConstraint columnNames="codigo" constraintName="UC_TIPOSCODIGO_COL" tableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-295">
+        <addUniqueConstraint columnNames="id" constraintName="UC_TIPOSID_COL" tableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-296">
+        <addUniqueConstraint columnNames="id" constraintName="UC_TIPOS_ENTIDADESID_COL" tableName="tipos_entidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-297">
+        <addUniqueConstraint columnNames="id" constraintName="UC_USERSID_COL" tableName="users"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-298">
+        <addUniqueConstraint columnNames="username" constraintName="UC_USERSUSERNAME_COL" tableName="users"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-299">
+        <addForeignKeyConstraint baseColumnNames="tipo_id,rev" baseTableName="tipo_estructuras_aud" constraintName="FK_16q157brvl72v6x9lj75hcoe9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id,rev" referencedTableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-300">
+        <addForeignKeyConstraint baseColumnNames="remito" baseTableName="items_alquiler" constraintName="FK_1a4qx1xgiimt3xbskl8g0xmu7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="alquileres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-301">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="codigos_de_barras_aud" constraintName="FK_1d5w6gwno9t2u06t6xxmlx4wf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-302">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="sucursales_aud" constraintName="FK_1qjg5jv1dodgaooybck1efi6j" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-303">
+        <addForeignKeyConstraint baseColumnNames="tipo_id,rev" baseTableName="tipo_posiciones_fiscal_aud" constraintName="FK_1s8nkg1ayqhd4n4cvtkyh7pam" deferrable="false" initiallyDeferred="false" referencedColumnNames="id,rev" referencedTableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-304">
+        <addForeignKeyConstraint baseColumnNames="atributo_valor_id" baseTableName="productos_atributos" constraintName="FK_1t0jmme6enbhip3ggkdei156l" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="atributos_valor"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-305">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="entidades_productos" constraintName="FK_1xt0uvmkh0baby5q12mn0a7uh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-306">
+        <addForeignKeyConstraint baseColumnNames="remito" baseTableName="items_prestamo" constraintName="FK_20120jax5nt0fywvh0sd22g27" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="prestamos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-307">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="programas_aud" constraintName="FK_21wawqtxmdsa09ohr5iaa1w1r" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-308">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="devoluciones_aud" constraintName="FK_26eyeki7u4u57qu5opt18x2vl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-309">
+        <addForeignKeyConstraint baseColumnNames="items" baseTableName="ordenes_lavado_items" constraintName="FK_275j9pyu44t1glr46s3nohsib" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="items_orden_lavado"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-310">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="prestamos" constraintName="FK_27ll5du30p0ijfu74brwniek0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-311">
+        <addForeignKeyConstraint baseColumnNames="remito" baseTableName="items_remito_retiro" constraintName="FK_2ckq5i1rw7wgrey9yqrece0qo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="remitos_retiro"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-312">
+        <addForeignKeyConstraint baseColumnNames="ordenes_lavado" baseTableName="ordenes_lavado_items" constraintName="FK_2cohkdx20c5p9gt0ne92nf0nv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="ordenes_lavado"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-313">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="despachos_remitos_camion_aud" constraintName="FK_2pgsnyu6yjioitr1189yv4lhd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-315">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="items_remito_retiro" constraintName="FK_3yb01xtd58vla3vi9beem3b29" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-316">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="atributos_aud" constraintName="FK_4fp3n8m35u0b0tou6abcswa25" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-317">
+        <addForeignKeyConstraint baseColumnNames="contrato" baseTableName="contrato_items" constraintName="FK_4ura8uwhobvaly1dqvhfwsib1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="contratos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-318">
+        <addForeignKeyConstraint baseColumnNames="sucursal" baseTableName="items_orden_lavado" constraintName="FK_56ky2v790n2op6ok50f3hsy27" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sucursales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-319">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="ordenes_lavado_aud" constraintName="FK_5be8fms1a7ewdwyei8vbrlykf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-320">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="organizaciones_aud" constraintName="FK_5jnerdky393ocw6v01hkjkevd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-321">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="roles_permisos_aud" constraintName="FK_6618ayuj789wdgqx48cs4tdma" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-322">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="prestamos_aud" constraintName="FK_6b30bkw4fw2jgwsx7oe9ganxk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-323">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="items_alquiler_aud" constraintName="FK_6b6sqjmoyenu0gs7hu8qqe2i5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-325">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="alquileres_aud" constraintName="FK_6m4870epuolik76ptpnpx7gji" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-326">
+        <addForeignKeyConstraint baseColumnNames="tipo_id" baseTableName="tipo_condiciones_pago" constraintName="FK_6ofi3ns84yicdj3fwkqabtmad" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-327">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="items_remito_entrega_aud" constraintName="FK_7063ur3arj7rhp7ogh6cq33by" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-328">
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="tiposcontratos" constraintName="FK_7r26emrwepugv7h1mrnxhpbmo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-329">
+        <addForeignKeyConstraint baseColumnNames="tipo_id" baseTableName="tipo_producto" constraintName="FK_7slevcak2wjuenmh7crj4kt78" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-330">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="tipos_entidades_aud" constraintName="FK_7vhkl3qmaddqi6el77a85eyi5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-331">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="prestamos" constraintName="FK_7yp58xsgxr8vqxb552qit5byd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-332">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="remitos_entrega_aud" constraintName="FK_8dr7cawplerckwqhqp4ocbwux" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-333">
+        <addForeignKeyConstraint baseColumnNames="productos" baseTableName="productos_sobrenombres" constraintName="FK_8lmdjumbjma2m1v2euoxfec5b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-334">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="sobrenombres_aud" constraintName="FK_923chqm79741u04x7f34oadk9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-335">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="items_orden_lavado_aud" constraintName="FK_98txswdnwtch0060b3scnf308" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-336">
+        <addForeignKeyConstraint baseColumnNames="cuenta_corriente" baseTableName="saldos" constraintName="FK_9dbv4hn4242e5dw04erb1rg3g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="cuentas_corriente"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-337">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="users_roles_aud" constraintName="FK_9mfxqgjl04p440tucqxskhtkn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-338">
+        <addForeignKeyConstraint baseColumnNames="id,rev" baseTableName="tiposcontratos_aud" constraintName="FK_ada34be8djmjm8ueeblcvsq9i" deferrable="false" initiallyDeferred="false" referencedColumnNames="id,rev" referencedTableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-339">
+        <addForeignKeyConstraint baseColumnNames="sobrenombres" baseTableName="productos_sobrenombres" constraintName="FK_aggsg3gphp54wwr67jhq7masf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sobrenombres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-340">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="items_remito_retiro_aud" constraintName="FK_ajx1s1oa4a8vqsla2pk693kby" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-341">
+        <addForeignKeyConstraint baseColumnNames="roles" baseTableName="users_roles" constraintName="FK_akos9oduijg8ig3wqp81bafb3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="roles"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-342">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="clientes_sucursales_aud" constraintName="FK_apbaoty8xcirv1neru2sbcu92" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-343">
+        <addForeignKeyConstraint baseColumnNames="tipo_id,rev" baseTableName="tipo_condiciones_pago_aud" constraintName="FK_av5qc5ty4dg2264yisqkqapi7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id,rev" referencedTableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-344">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="despachos" constraintName="FK_ax34li8j256t658tg0y5vx95r" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-346">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="items_orden_lavado" constraintName="FK_bbru69k458581oxc4h2ho177s" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-347">
+        <addForeignKeyConstraint baseColumnNames="tipo_id,rev" baseTableName="tipo_hormigones_aud" constraintName="FK_bclrrft4m7kvw1nbcambs796a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id,rev" referencedTableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-348">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="items_devolucion" constraintName="FK_bj0bbtl2t98h259i3vaudubjf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-349">
+        <addForeignKeyConstraint baseColumnNames="tipo_id" baseTableName="tipo_posiciones_fiscal" constraintName="FK_c1n0jik8ntjo01bbulyv845fx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-350">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="remitos_retiro" constraintName="FK_c90rhg0cbm5nmbcerf250t96a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-351">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="users" constraintName="FK_cddjhd7qg40mx3j7fcaqlqjxq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-352">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="lavadoras_programas_aud" constraintName="FK_d06r98iih8d7tce5gm9tsjnhi" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-353">
+        <addForeignKeyConstraint baseColumnNames="tipo_id,rev" baseTableName="tipo_producto_aud" constraintName="FK_d35ynrdv13bnrerfxt14iss64" deferrable="false" initiallyDeferred="false" referencedColumnNames="id,rev" referencedTableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-354">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="ordenes_lavado_items_aud" constraintName="FK_dharxrmd0449k3rw5pi7y1e3u" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-355">
+        <addForeignKeyConstraint baseColumnNames="tipo_id" baseTableName="tipo_materiales" constraintName="FK_dwxmp3aw0wga7hvt7v7tps33i" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-356">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="devoluciones" constraintName="FK_ec145mlns66qqlvos14c310fd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-357">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="alquileres" constraintName="FK_eim94hojc6wfg2iy5e44v85jh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-358">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="revchanges" constraintName="FK_et6b2lrkqkab5mhvxkv861n8h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-359">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="alquileres" constraintName="FK_f1liw8ru90rxsr8f7nkc5sg2g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-360">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="contratos_aud" constraintName="FK_f5qquyxs82uxh7uyhn2m2kjx5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-361">
+        <addForeignKeyConstraint baseColumnNames="lavadoras" baseTableName="lavadoras_programas" constraintName="FK_fosgeu0oc3b5nldkusmegi4k4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lavadoras"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-362">
+        <addForeignKeyConstraint baseColumnNames="despachos" baseTableName="despachos_alquileres" constraintName="FK_fqna6x193tn6cp4a8fqg3k9w2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="despachos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-363">
+        <addForeignKeyConstraint baseColumnNames="sucursal" baseTableName="remitos_retiro" constraintName="FK_frvwgw0cep3lpa21yxkbk1hxw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sucursales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-364">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="items_devolucion_aud" constraintName="FK_fsac06tqyonjb22yvnusf70w1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-365">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="contrato_items_aud" constraintName="FK_g3af0lxrf97j9owt9165ab4dh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-366">
+        <addForeignKeyConstraint baseColumnNames="remito" baseTableName="items_remito_entrega_camion" constraintName="FK_g4dgrttu8glltk8hulmniq7n0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="remitos_entrega_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-368">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="movimientoscc_aud" constraintName="FK_h237mnkc6hxb6wdi4my0pm4ri" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-369">
+        <addForeignKeyConstraint baseColumnNames="tipo_id" baseTableName="tipo_estructuras" constraintName="FK_h24wc55iekc7baxiqdvw7ql0a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-370">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="entidades_aud" constraintName="FK_hg634g24pwx9gfuo3o7oedsmw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-371">
+        <addForeignKeyConstraint baseColumnNames="roles" baseTableName="roles_permisos" constraintName="FK_hiqf6hajulpkat4hif9wctkd2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="roles"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-372">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="items_orden_lavado" constraintName="FK_hy9366gr5chthph81fkcynou2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-373">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="cuentas_corriente_aud" constraintName="FK_hyil4hi5snxhfc7j91919r7k9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-374">
+        <addForeignKeyConstraint baseColumnNames="alquileres" baseTableName="despachos_alquileres" constraintName="FK_i0tl8jay0hj1ype1d7qmon4vn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="alquileres"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-375">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="productos_sobrenombres_aud" constraintName="FK_i17453nncly7p49oykghamvne" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-376">
+        <addForeignKeyConstraint baseColumnNames="programas" baseTableName="lavadoras_programas" constraintName="FK_i7ua51u1nvn2ljj7un4f93dd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="programas"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-377">
+        <addForeignKeyConstraint baseColumnNames="producto_id" baseTableName="productos_atributos" constraintName="FK_ihjwqh1vljus56i2wfv3vhx7w" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-378">
+        <addForeignKeyConstraint baseColumnNames="sucursales" baseTableName="clientes_sucursales" constraintName="FK_iyrof92nausgpyhbgxtntaa47" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sucursales"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-379">
+        <addForeignKeyConstraint baseColumnNames="despachos" baseTableName="despachos_prestamos" constraintName="FK_j1gdo144uvikjp3921g01251b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="despachos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-380">
+        <addForeignKeyConstraint baseColumnNames="tipo_id,rev" baseTableName="tipo_materiales_aud" constraintName="FK_j2p3yvlxhciimhglvlebo2kv0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id,rev" referencedTableName="tipos_aud"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-381">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="remitos_entrega_camion" constraintName="FK_j5cv3xda29cfcj1ebfgqjn1vr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-383">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="remitos_entrega_camion_aud" constraintName="FK_j6ecnbhsdw7xt1aul9ef0mfsk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-384">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="remitos_entrega_camion" constraintName="FK_kgdxttkbgnp1i0xjphemna3g2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-385">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="saldos" constraintName="FK_kgnwauaj4v4svgo7ywuwm4arb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-386">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="despachos_aud" constraintName="FK_kmvrx38ate9todkvjy5ed1r7c" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-387">
+        <addForeignKeyConstraint baseColumnNames="permisos" baseTableName="roles_permisos" constraintName="FK_kvf0k2ek7rcbh20y0k9yvdep4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="permisos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-388">
+        <addForeignKeyConstraint baseColumnNames="remitos_clientes" baseTableName="despachos_remitos_clientes" constraintName="FK_l6ui0g9kj3l6akr4ch1lw6sui" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="remitos_entrega"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-389">
+        <addForeignKeyConstraint baseColumnNames="tipo_contrato" baseTableName="contratos" constraintName="FK_lmgbokvfdtfs3ashsrk1nqhy4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tiposcontratos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-390">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="items_remito_entrega" constraintName="FK_lnga24op7x0aeb0ju7cj0g1g1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-391">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="items_remito_entrega_camion_aud" constraintName="FK_lr022dsdkjodqet20rct9yfa4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-392">
+        <addForeignKeyConstraint baseColumnNames="despachos" baseTableName="despachos_remitos_clientes" constraintName="FK_lwl3r2mceo51s3hof53avuftb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="despachos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-393">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="items_remito_entrega_camion" constraintName="FK_m1us3y3koqjt0ugwu3q7c5jrd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-394">
+        <addForeignKeyConstraint baseColumnNames="remitos_camion" baseTableName="despachos_remitos_camion" constraintName="FK_matsh0li4c1dre9f7jk153m7r" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="remitos_entrega_camion"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-395">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="cuentas_corriente" constraintName="FK_mc4fij0g03cm1btq4hanseo7k" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-396">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="permisos_aud" constraintName="FK_mpbyhemn6161hqy3k8j3xlmis" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-397">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="entidades" constraintName="FK_mvl34ktjqcmbarp8ms5hdy0cm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-398">
+        <addForeignKeyConstraint baseColumnNames="clientes" baseTableName="clientes_sucursales" constraintName="FK_mxxv0y6hquwlbioua26fpa9sg" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-399">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="localidades_aud" constraintName="FK_my4q6n1jpgs2bdh26hr5fd4jj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-400">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="remitos_retiro_aud" constraintName="FK_n7ru8kun5saic0em4i7dwj05u" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-401">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="tipos_aud" constraintName="FK_nbtm7kudk7ulhonccit00opfj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-402">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="remitos_retiro" constraintName="FK_nl8w6tk6w0imss9apol2x8450" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-403">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="contrato_items" constraintName="FK_nujjuknmupvo3433966f257v5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-404">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="users_aud" constraintName="FK_nwv4fh3qmwdrk28v1uxgcfahd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-405">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="cuentas_corriente" constraintName="FK_nyau4eegb5tvwjeydsfu9tsmm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-406">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="remitos_entrega" constraintName="FK_o4ge498qlrhrjmic87lm00l8l" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-407">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="atributos_valor_aud" constraintName="FK_oajekry0dwm8ws36hnwhqbffv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-408">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="despachos_remitos_clientes_aud" constraintName="FK_odngb6j8uq0fti0vek9l6d9fp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-409">
+        <addForeignKeyConstraint baseColumnNames="users" baseTableName="users_roles" constraintName="FK_odnwurhk4qtee8092h68f4vos" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-410">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="items_prestamo_aud" constraintName="FK_oe3hvdyn27tcigwc1hvwomwjs" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-411">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="remitos_entrega" constraintName="FK_ogu77fx9f35wud4xlycrmptde" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-412">
+        <addForeignKeyConstraint baseColumnNames="camion" baseTableName="devoluciones" constraintName="FK_okblkva6c28jey4ohqjqqysgb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="camiones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-413">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="clientes_aud" constraintName="FK_okmts6f0c45wsw86bs8am8wx9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-414">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="despachos_prestamos_aud" constraintName="FK_old1qj4b6whygavj5b4mdu2cy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-415">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="productos_aud" constraintName="FK_orn96wep392c3x4k7jhsjjses" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-416">
+        <addForeignKeyConstraint baseColumnNames="despachos" baseTableName="despachos_remitos_camion" constraintName="FK_oxfk8p0v0yrc96bafjc1c5h5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="despachos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-417">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="lavadoras_aud" constraintName="FK_p3kuba7lbyrca5a4bot0jeodj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-418">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="despachos_alquileres_aud" constraintName="FK_p7tjbcvlns5toftgodr2dpyru" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-419">
+        <addForeignKeyConstraint baseColumnNames="cliente" baseTableName="contratos" constraintName="FK_pflgln8rf5rj9nkk56yincnhl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clientes"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-420">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="roles_aud" constraintName="FK_pkqm51vsc35w2axvnns4bpas9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-421">
+        <addForeignKeyConstraint baseColumnNames="tipo" baseTableName="entidades" constraintName="FK_q1w34mv4qpv6f85l9uce8nhh4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos_entidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-422">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="camiones_aud" constraintName="FK_q8lpk6pa6ohvdwwk7gy1g3bis" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-423">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="productos_atributos_aud" constraintName="FK_q9o4ddgmyed7a83olwe9kk933" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-424">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="items_alquiler" constraintName="FK_q9r3i6hvjh8pm95o66k98nwfn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-425">
+        <addForeignKeyConstraint baseColumnNames="prestamos" baseTableName="despachos_prestamos" constraintName="FK_qga5rpsfpr3xnt6las5vgkss7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="prestamos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-426">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="documentos_aud" constraintName="FK_qmo9a8wy14p9rvmdrb6et026u" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-428">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="entidades_productos_aud" constraintName="FK_rswae1f4667vlqd3nafk8ril" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-429">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="firmas_aud" constraintName="FK_ru5i6u7ppox93exeap40hs7jg" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-430">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="saldos_aud" constraintName="FK_sjpej3sds93s7nub8p4dkesdd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="custom_revision_entity"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-431">
+        <addForeignKeyConstraint baseColumnNames="producto" baseTableName="items_prestamo" constraintName="FK_sks7ga6yqiiusnent8s0yr6ey" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-432">
+        <addForeignKeyConstraint baseColumnNames="remito" baseTableName="items_remito_entrega" constraintName="FK_sr7gccmtdm2l34ivw2iudft1v" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="remitos_entrega"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-433">
+        <addForeignKeyConstraint baseColumnNames="cuenta_corriente" baseTableName="movimientoscc" constraintName="FK_srfnbq2xoe79o03osihrxcnma" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="cuentas_corriente"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-434">
+        <addForeignKeyConstraint baseColumnNames="remito" baseTableName="items_devolucion" constraintName="FK_sw0tolvpyjrulhsnecso7enjf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="devoluciones"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-435">
+        <addForeignKeyConstraint baseColumnNames="entidad" baseTableName="entidades_productos" constraintName="FK_t3f445jhqne8l24ubd4j39btd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="entidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-436">
+        <addForeignKeyConstraint baseColumnNames="tipo_id" baseTableName="tipo_hormigones" constraintName="FK_te6gkvbxdi5gh9vmuyks2e7mt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tipos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-437">
+        <addForeignKeyConstraint baseColumnNames="atributo" baseTableName="atributos_valor" constraintName="FK_thg0gui42rw3s9vm0kpseg59m" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="atributos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-438">
+        <addForeignKeyConstraint baseColumnNames="localidad_id" baseTableName="clientes" constraintName="fk_cliente_localidad" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="localidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-439">
+        <addForeignKeyConstraint baseColumnNames="tipo_condicionpago_id" baseTableName="clientes" constraintName="fk_cliente_tipo_condicionpago" deferrable="false" initiallyDeferred="false" referencedColumnNames="tipo_id" referencedTableName="tipo_condiciones_pago"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-440">
+        <addForeignKeyConstraint baseColumnNames="tipo_posicionfiscal_id" baseTableName="clientes" constraintName="fk_cliente_tipo_posicionfiscal" deferrable="false" initiallyDeferred="false" referencedColumnNames="tipo_id" referencedTableName="tipo_posiciones_fiscal"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-441">
+        <addForeignKeyConstraint baseColumnNames="lavadora_id" baseTableName="ordenes_lavado" constraintName="fk_ordenlavado_lavadora" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lavadoras"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-442">
+        <addForeignKeyConstraint baseColumnNames="programa_id" baseTableName="ordenes_lavado" constraintName="fk_ordenlavado_programa" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="programas"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-443">
+        <addForeignKeyConstraint baseColumnNames="producto_id" baseTableName="productos" constraintName="fk_producto_producto" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="productos"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-444">
+        <addForeignKeyConstraint baseColumnNames="tipo_producto_id" baseTableName="productos" constraintName="fk_producto_tipo_producto" deferrable="false" initiallyDeferred="false" referencedColumnNames="tipo_id" referencedTableName="tipo_producto"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-445">
+        <addForeignKeyConstraint baseColumnNames="localidad_id" baseTableName="sucursales" constraintName="fk_sucursal_localidad" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="localidades"/>
+    </changeSet>
+    <changeSet author="sebax (generated)" id="1461184345199-446">
+        <addForeignKeyConstraint baseColumnNames="organizacion_id" baseTableName="users" constraintName="fk_user_organizacion" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="organizaciones"/>
+    </changeSet>
+</databaseChangeLog>

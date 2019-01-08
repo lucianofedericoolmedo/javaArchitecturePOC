@@ -1,0 +1,1 @@
+sudo service tomcat8 stop && sudo rm -rf /var/lib/tomcat8/webapps/* /var/lib/tomcat8/webapps/CONSOLIDAR.war && mvn clean package && sudo cp target/CONSOLIDAR.war /var/lib/tomcat8/webapps && sudo service tomcat8 restart

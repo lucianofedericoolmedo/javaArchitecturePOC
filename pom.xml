@@ -1,0 +1,782 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ar.com.mobeats.consolidar</groupId>
+	<artifactId>consolidar-backend</artifactId>
+	<packaging>war</packaging>
+	<version>0.1.0</version>
+	<name>Consolidar</name>
+
+	<properties>
+		<frontend.basedir>../frontend</frontend.basedir>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.war.plugin.version>3.2.2</maven.war.plugin.version>
+		<yeoman.maven.plugin.version>0.2</yeoman.maven.plugin.version>
+
+		<junit.version>4.12</junit.version>
+		<mockito.version>1.10.19</mockito.version>
+		<log4j.version>2.11.1</log4j.version>
+		<h2database.version>1.4.197</h2database.version>
+		<dbunit.version>2.5.4</dbunit.version>
+		<spring-test-dbunit.version>1.3.0</spring-test-dbunit.version>
+
+		<servlet.version>4.0.1</servlet.version>
+		<cxf.version>3.2.6</cxf.version>
+		<spring.version>4.3.20.RELEASE</spring.version>
+		<spring-data-jpa.version>1.11.16.RELEASE</spring-data-jpa.version>
+		<spring-ldap-core.version>2.3.2.RELEASE</spring-ldap-core.version>
+		<jackson.version>2.9.6</jackson.version>
+
+		<commons-lang.version>3.8.1</commons-lang.version>
+		<commons-beanutils.version>1.9.3</commons-beanutils.version>
+		<commonsio.version>2.4</commonsio.version>
+
+		<org-postgresql-jdbc.version>42.2.5</org-postgresql-jdbc.version>
+		<mariadb-jdbc.version>2.3.0</mariadb-jdbc.version>
+		<commons-dbcp.version>2.4.0</commons-dbcp.version>
+
+		<slf4j.version>1.7.25</slf4j.version>
+		<nimbus-jose-jwt.version>2.26.1</nimbus-jose-jwt.version>
+		<aspectj.version>1.9.1</aspectj.version>
+		<jsr250-api.version>1.0</jsr250-api.version>
+
+		<hibernate.version>5.3.6.Final</hibernate.version>
+		<hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version>
+		<hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
+		<ehcache.version>3.6.1</ehcache.version>
+		<ehcache-region.version>5.3.6.Final</ehcache-region.version>
+
+		<liquibase.version>3.5.3</liquibase.version>
+		<liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
+
+		<maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
+		
+		<graylog2.version>1.1.14</graylog2.version>
+		<log4j2-gelf.version>1.3.1</log4j2-gelf.version>
+		
+		<checkstyle.version>8.14</checkstyle.version>
+		<checkstyle-maven-plugin.version>3.0.0</checkstyle-maven-plugin.version>
+		<maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+		<maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+		<sonar-maven-plugin.version>3.2</sonar-maven-plugin.version>
+
+		<project.build.outputDirectory>/target/classes/</project.build.outputDirectory>
+	</properties>
+	
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- It is possible to accidentally mix different versions of Spring JARs 
+				when using Maven. For example, you may find that a third-party library, or 
+				another Spring project, pulls in a transitive dependency to an older release. 
+				If you forget to explicitly declare a direct dependency yourself, all sorts 
+				of unexpected issues can arise. To overcome such problems Maven supports 
+				the concept of a "bill of materials" (BOM) dependency. You can import the 
+				spring-framework-bom in your dependencyManagement section to ensure that 
+				all spring dependencies (both direct and transitive) are at the same version. -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Apache Log4j -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>${log4j.version}</version>
+		</dependency>
+		
+
+		<!-- Servlet 3.1 Specification for Tomcat 8 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Apache CXF -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-javamail_1.4_spec</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-security-oauth2</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-servlet_3.0_spec</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- JSON Provider -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.jaxrs</groupId>
+		    <artifactId>jackson-jaxrs-json-provider</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>com.fasterxml.jackson.datatype</groupId>
+	        <artifactId>jackson-datatype-jsr310</artifactId>
+	        <version>${jackson.version}</version>
+		</dependency>
+
+		<!-- Spring Framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+
+		<!-- Spring LDAP => Para autenticar con Active Directory -->
+		<dependency>
+			<groupId>org.springframework.ldap</groupId>
+			<artifactId>spring-ldap-core</artifactId>
+			<version>${spring-ldap-core.version}</version>
+		</dependency>
+
+		<!-- AspectJ Tools -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+
+		<!-- Hibernate dependencies -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+		
+		<!-- 
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>${hibernate-jpa-2.1-api.version}</version>
+		</dependency>
+		 -->
+		
+		<!-- Hibernate Envers -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-envers</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- Hibernate Validators -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		<!-- EhCache -->
+		<dependency>
+			<groupId>org.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>${ehcache.version}</version>
+	    </dependency>
+	    <dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-ehcache</artifactId>
+		    <version>${ehcache-region.version}</version>
+		</dependency>
+
+		<!-- Apache Commons -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${commons-lang.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>${commons-dbcp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons-beanutils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commonsio.version}</version>
+		</dependency>
+		
+		<!-- Driver PostgreSQL -->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>${org-postgresql-jdbc.version}</version>
+		</dependency>
+		
+		<!-- Driver MariaDB -->
+		<dependency>
+		    <groupId>org.mariadb.jdbc</groupId>
+		    <artifactId>mariadb-java-client</artifactId>
+		    <version>${mariadb-jdbc.version}</version>
+		</dependency>
+		
+		<!-- Driver H2 for JUnit at DAO level -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2database.version}</version>
+			<!-- 
+			<scope>test</scope>
+			 -->
+		</dependency>
+
+		<!-- Spring Test DBUnit to run DAO's test -->
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+			<version>${spring-test-dbunit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>${dbunit.version}</version>
+			<scope>test</scope>
+			<!-- 
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+			-->
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>${slf4j.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>${slf4j.version}</version>
+		</dependency>
+				
+
+		<!-- For JWT authentication -->
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>nimbus-jose-jwt</artifactId>
+			<version>${nimbus-jose-jwt.version}</version>
+		</dependency>
+
+		<!-- JSR250 API for @RolesAllowed annotation -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>${jsr250-api.version}</version>
+		</dependency>
+
+		<!-- Liquibase -->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Graylog 2 -->		
+		<dependency>
+		    <groupId>org.graylog2</groupId>
+		    <artifactId>gelfj</artifactId>
+		    <version>${graylog2.version}</version>
+		    <scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+	        <groupId>org.graylog2.log4j2</groupId>
+	        <artifactId>log4j2-gelf</artifactId>
+	        <version>${log4j2-gelf.version}</version>
+	    </dependency>
+		
+		
+		<!-- Checkstyle -->
+		<dependency>
+		    <groupId>com.puppycrawl.tools</groupId>
+		    <artifactId>checkstyle</artifactId>
+		    <version>${checkstyle.version}</version>
+		</dependency>
+		
+		<!-- SonarQube -->
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>${sonar-maven-plugin.version}</version>
+		</dependency>
+		
+	</dependencies>
+
+	<build>
+		<finalName>CONSOLIDAR</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.11.v20160721</version>
+				<configuration>
+				  <scanIntervalSeconds>30</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			
+			<!-- 
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven.war.plugin.version}</version>
+				<configuration>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+					<warName>${project.build.finalName}</warName>
+					<webResources>
+						<resource>
+							<directory>${frontend.basedir}/public/dist</directory>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
+				<configuration>
+					<excludes>
+						<exclude>**/SpringLDAPTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat8-maven-plugin</artifactId>
+    			<version>3.0-r1756463</version>
+				<configuration>
+					<username>admin</username>
+					<password>admin</password>
+				</configuration>
+			</plugin>
+
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.21.0</version>
+                <configuration>
+                    <skipITs>true</skipITs>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-checkstyle-plugin</artifactId>
+			    <version>${checkstyle-maven-plugin.version}</version>
+			    <!-- Uncomment to use custom checkstyle file
+			    <configuration>
+			        <configLocation>{custom checkstyle file}.xml</configLocation>
+			    </configuration>
+			     -->
+				<executions>
+			        <execution>
+				        <id>checkstyle</id>
+				        <phase>none</phase>
+				        <goals>
+				            <goal>check</goal>
+				        </goals>
+				        <configuration>
+				        	<!-- Set to true if build should fail on lint errors -->
+				            <failOnViolation>false</failOnViolation>
+				        </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+		</plugins>
+		
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>profiles/**</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources/profiles/${profile.name}</directory>
+				<includes>
+					<include>*.xml</include>
+					<include>*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+	
+	<!-- Lint Reporting -->
+	<reporting>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-checkstyle-plugin</artifactId>
+	            <version>${checkstyle-maven-plugin.version}</version>
+	            <!-- Uncomment to use custom checkstyle file
+	            <configuration>
+	                <configLocation>{custom-checkstyle-file}.xml</configLocation>
+	            </configuration>
+	             -->
+	        </plugin>
+	        <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${maven-site-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${maven-project-info-reports-plugin.version}</version>
+			</plugin>
+	    </plugins>
+	</reporting>
+
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		
+		<!-- Define profiles to use different properties file
+			The property profile.name must match the folder name for the specific profile
+			under the profiles folder. src/main/resources/profiles/${profile.name}/file.properties
+		 -->
+	    <profile>
+	      <id>dev</id>
+	      <activation>
+	        <activeByDefault>true</activeByDefault>
+	      </activation>
+	      <properties>
+	        <profile.name>dev</profile.name>
+	      </properties>
+	    </profile>
+	    <profile>
+	      <id>prod</id>
+	      <properties>
+	        <profile.name>prod</profile.name>
+	      </properties>
+	    </profile>
+	    
+	    <profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Optional URL to server. 
+						Default value is http://localhost:9000. 
+						Default value is explicit for quick modification
+				-->
+				<sonar.host.url>
+				http://localhost:9000
+				</sonar.host.url>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>grunt-build</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.trecloux</groupId>
+						<artifactId>yeoman-maven-plugin</artifactId>
+						<version>${yeoman.maven.plugin.version}</version>
+						<configuration>
+							<yeomanProjectDirectory>${frontend.basedir}</yeomanProjectDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>run-grunt</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+								<configuration>
+									<gruntBuildArgs>build</gruntBuildArgs>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>grunt-build-qa</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.trecloux</groupId>
+						<artifactId>yeoman-maven-plugin</artifactId>
+						<version>${yeoman.maven.plugin.version}</version>
+						<configuration>
+							<yeomanProjectDirectory>${frontend.basedir}</yeomanProjectDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>run-grunt</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+								<configuration>
+									<gruntBuildArgs>build-qa</gruntBuildArgs>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>grunt-build-production</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.trecloux</groupId>
+						<artifactId>yeoman-maven-plugin</artifactId>
+						<version>${yeoman.maven.plugin.version}</version>
+						<configuration>
+							<yeomanProjectDirectory>${frontend.basedir}</yeomanProjectDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>run-grunt</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+								<configuration>
+									<gruntBuildArgs>build-prod</gruntBuildArgs>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>grunt-build-mobeats</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.trecloux</groupId>
+						<artifactId>yeoman-maven-plugin</artifactId>
+						<version>${yeoman.maven.plugin.version}</version>
+						<configuration>
+							<yeomanProjectDirectory>${frontend.basedir}</yeomanProjectDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>run-grunt</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+								<configuration>
+									<gruntBuildArgs>build-mobeats</gruntBuildArgs>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>liquibase</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.liquibase</groupId>
+						<artifactId>liquibase-maven-plugin</artifactId>
+						<version>${liquibase.version}</version>
+						<configuration>
+							<propertyFile>src/test/resources/liquibase/liquibase.properties</propertyFile>
+						</configuration>
+						<executions>
+							<execution>
+								<id>generate-db-prev</id>
+								<phase>process-test-resources</phase>
+								<goals>
+									<goal>update</goal>
+								</goals>
+								<configuration>
+									<dropFirst>true</dropFirst>
+									<propertyFile>src/test/resources/liquibase/diff/liquibase-diff.properties</propertyFile>
+								</configuration>
+							</execution>
+							<execution>
+								<id>generate-db-diff</id>
+								<phase>process-test-resources</phase>
+								<goals>
+									<goal>diff</goal>
+								</goals>
+								<configuration>
+									<propertyFile>src/test/resources/liquibase/diff/liquibase-diff.properties</propertyFile>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>org.hibernate</groupId>
+								<artifactId>hibernate-core</artifactId>
+								<version>${hibernate.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>org.springframework</groupId>
+								<artifactId>spring-context</artifactId>
+								<version>${spring.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>org.springframework</groupId>
+								<artifactId>spring-orm</artifactId>
+								<version>${spring.version}</version>
+							</dependency>
+							<dependency>
+							    <groupId>org.liquibase.ext</groupId>
+							    <artifactId>liquibase-hibernate5</artifactId>
+							    <version>${liquibase-hibernate5.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<!-- NOT WORKING  hibernate version -->
+		<profile>
+			<id>liquibase-production</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>${maven-assembly-plugin.version}</version>
+						<configuration>
+							<descriptor>assembly/liquibase_assembly.xml</descriptor>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.liquibase</groupId>
+						<artifactId>liquibase-maven-plugin</artifactId>
+						<version>${liquibase.version}</version>
+						<configuration>
+							<propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>org.hibernate</groupId>
+								<artifactId>hibernate-core</artifactId>
+								<version>${hibernate.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>org.springframework</groupId>
+								<artifactId>spring-context</artifactId>
+								<version>${spring.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>org.springframework</groupId>
+								<artifactId>spring-orm</artifactId>
+								<version>${spring.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>org.liquibase.ext</groupId>
+								<artifactId>liquibase-hibernate4</artifactId>
+								<version>${liquibase-hibernate4.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+</project>

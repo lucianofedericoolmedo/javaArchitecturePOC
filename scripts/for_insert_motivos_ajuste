@@ -1,0 +1,42 @@
+Primera version
+
+INSERT INTO motivos_de_ajuste (id, state, descripcion, tipo_movimiento, de_cliente) VALUES
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de entrega al cliente',    'TipoDebito',  true),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de recepción del cliente', 'TipoCredito', true),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de alquiler al cliente',   'TipoDebito',  true),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de préstamo al cliente',   'TipoDebito',  true),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de entrega al camion',     'TipoDebito',  false),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de devolución del camion', 'TipoCredito', false),
+
+Segunda version
+
+INSERT INTO motivos_de_ajuste (id, state, descripcion, tipo_movimiento, mueve_saldo_pde) VALUES
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de entrega faltante',    'TipoDebito',  false),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de entrega sobrante',    'TipoCredito',  false),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de recepcion faltante',    'TipoDebito',  true),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por diferencia de recepcion sobrante',    'TipoCredito',  true),
+
+
+Tercera Version
+
+INSERT INTO motivos_de_ajuste (id, state, descripcion, tipo_movimiento, mueve_saldo_pde) VALUES
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por conteo cliente suma',   'TipoDebito',  false),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por conteo cliente resta',  'TipoCredito', false),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por conteo consolidar suma',  'TipoDebito',  true),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste por conteo consolidar resta', 'TipoCredito', true),
+
+Cuarta Version (REFACTOR de lógica de movimientos de Cuenta Corriente)
+
+INSERT INTO motivos_de_ajuste (id, state, descripcion, tipo_movimiento, mueve_saldo_pde, tipo_ajuste) VALUES
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de incremento en planta',  'TipoDebito',  false, null),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de decremento en planta',  'TipoCredito', false, null),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de incremento de adelanto',  'TipoDebito', false, 'ADELANTO'),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de decremento de adelanto',  'TipoCredito', false, 'ADELANTO')
+
+Extension Quinta Version (tipos de motivos que influyen en ajustes de stock)
+
+INSERT INTO motivos_de_ajuste (id, state, descripcion, tipo_movimiento, mueve_saldo_pde, tipo_ajuste) VALUES
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de incremento en planta de Remito Retiro',  'TipoDebito',  false, null),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de decremento en planta de Remito Retiro',  'TipoCredito', false, null),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de incremento en planta de Remito Entrega',  'TipoDebito',  false, null),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Ajuste de decremento en planta de Remito Entrega',  'TipoCredito', false, null);

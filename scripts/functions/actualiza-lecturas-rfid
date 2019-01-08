@@ -1,0 +1,40 @@
+﻿-- Function: actualiza_lecturas_rfid(character varying)
+
+-- DROP FUNCTION actualiza_lecturas_rfid(character varying);
+
+CREATE OR REPLACE FUNCTION actualiza_lecturas_rfid(p_cliente character varying)
+  RETURNS void AS
+$BODY$
+DECLARE
+    fechaHora timestamp;
+    codigorfid_it character varying;
+    traza_it integer;
+    resultado_it RECORD;
+
+    reg RECORD;
+    iterador integer := 0;
+    cur_rfid CURSOR for SELECT registros_rfid.codigorfid, lecturas.fecha_creacion AS fechaHora, eslabon_secuencia.indice AS lugar, registros_rfid.traza FROM registros_rfid
+			INNER JOIN (
+				SELECT codigo, fecha_creacion, lugar FROM lecturas_registros_rfid
+				WHERE fecha_creacion IN (
+					SELECT MAX(fecha_creacion) FROM lecturas_registros_rfid
+					WHERE lugar IS NOT NULL
+					GROUP BY codigo
+				)
+			) AS lecturas 
+			ON registros_rfid.codigorfid = lecturas.codigo
+			JOIN secuencias_lectura_rfid eslabon_secuencia ON eslabon_secuencia.lugar = lecturas.lugar
+			WHERE estado = 'ACTUAL' AND registros_rfid.cliente = '' || $1 || '';
+BEGIN
+   FOR reg IN cur_rfid LOOP
+   	iterador := iterador + 1;
+   	resultado_it := reg;
+   	PERFORM actualiza_lecturas_rfid($1, resultado_it.codigorfid, resultado_it.traza, resultado_it.lugar, resultado_it.fechaHora);
+   END LOOP;
+   RETURN;
+END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION actualiza_lecturas_rfid(character varying)
+  OWNER TO postgres;

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="internalServerErrorFactory" class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerErrorFactory">
+        <property name="exceptionMapping">
+            <map>
+                <entry key="Unknown">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="1" />
+                		<property name="message" value="Hubo un error inesperado" />
+                	</bean>
+                </entry>
+                <entry key="org.springframework.dao.DataIntegrityViolationException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="2" />
+                		<property name="message" value="Hubo una violación de integridad de datos" />
+                	</bean>
+                </entry>
+                <entry key="ar.com.mobeats.consolidar.backend.service.exception.ChangePasswordException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="3" />
+                		<property name="message" value="Hubo un error al cambiar el password" />
+                	</bean>
+                </entry>
+                <entry key="ar.com.mobeats.consolidar.backend.service.exception.AuthenticationException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="4" />
+                		<property name="message" value="Usuario o password inválido" />
+                	</bean>
+                </entry>
+                <entry key="ar.com.mobeats.consolidar.backend.service.exception.RefreshTokenException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="5" />
+                		<property name="message" value="Hubo un error al querer refrescar el token" />
+                	</bean>
+                </entry>
+                <entry key="ar.com.mobeats.consolidar.backend.service.exception.ForbiddenException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="6" />
+                		<property name="message" value="El usuario ingresado no está autorizado para acceder al sistema de trazabilidad" />
+                	</bean>
+				</entry>
+                <entry key="org.springframework.transaction.TransactionSystemException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="7" />
+                		<property name="message" value="Hubo una error al hacer commit de los datos. Probablemente se deba a una violación de integridad. Consulte el log para más detalle." />
+                	</bean>
+				</entry>
+                <entry key="ar.com.mobeats.consolidar.backend.service.exception.SubCoveredException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="8" />
+                	</bean>
+				</entry>		
+                <entry key="ar.com.mobeats.consolidar.backend.service.exception.OverCoveredException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="9" />
+                	</bean>
+				</entry>
+                <entry key="ar.com.mobeats.consolidar.backend.service.exception.SignatureException">
+                	<bean class="ar.com.mobeats.consolidar.backend.service.exception.InternalServerError">
+                		<property name="code" value="10" />
+                		<property name="message" value="Los datos de la firma no son correctos" />
+                	</bean>
+				</entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="restResponseHandler" class="ar.com.mobeats.consolidar.backend.util.RestResponseHandler" />
+
+</beans>

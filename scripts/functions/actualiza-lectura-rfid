@@ -1,0 +1,38 @@
+﻿-- Function: actualiza_lecturas_rfid(character varying, character varying, bigint, integer, timestamp without time zone)
+
+-- DROP FUNCTION actualiza_lecturas_rfid(character varying, character varying, bigint, integer, timestamp without time zone);
+
+CREATE OR REPLACE FUNCTION actualiza_lecturas_rfid(cliente character varying, codigorfid character varying, traza bigint, ultimo_indice_lugar_lectura integer, ultima_fecha_lectura timestamp without time zone)
+  RETURNS void AS
+$BODY$
+DECLARE
+    fecha_lectura_generada timestamp without time zone;
+    lugar_correcto_en_secuencia character varying;
+    indice_lugar_correcto_en_secuencia integer;
+    lugar_lectura_anterior character varying;
+BEGIN
+    IF $4 > 0
+	THEN indice_lugar_correcto_en_secuencia := $4 - 1;
+	ELSE SELECT INTO indice_lugar_correcto_en_secuencia MAX(secuencia.indice) FROM secuencias_lectura_rfid secuencia WHERE secuencia.cliente = $1;
+    END IF;
+
+    SELECT INTO lugar_correcto_en_secuencia secuencia.lugar FROM secuencias_lectura_rfid secuencia WHERE secuencia.cliente = $1 AND secuencia.indice = indice_lugar_correcto_en_secuencia;
+
+    SELECT lugar INTO lugar_lectura_anterior FROM lecturas_registros_rfid WHERE fecha_creacion = (SELECT MAX(fecha_creacion)
+												FROM lecturas_registros_rfid 
+												WHERE codigo = $2 
+												AND fecha_creacion < $5) AND codigo = $2;
+
+    IF lugar_lectura_anterior IS NOT NULL AND lugar_correcto_en_secuencia != lugar_lectura_anterior
+	THEN
+		fecha_lectura_generada := $5 - 1 * interval '1 second';
+		INSERT INTO lecturas_registros_rfid (id, fecha_creacion, state, codigo, traza, lugar, generado_por_ausencia_de_lectura)
+		VALUES (md5(random()::text || clock_timestamp()::text)::uuid, fecha_lectura_generada, 2, $2, $3, lugar_correcto_en_secuencia, true);
+		PERFORM actualiza_lecturas_rfid($1, $2, $3, indice_lugar_correcto_en_secuencia, fecha_lectura_generada);
+    END IF;
+END
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION actualiza_lecturas_rfid(character varying, character varying, bigint, integer, timestamp without time zone)
+  OWNER TO postgres;

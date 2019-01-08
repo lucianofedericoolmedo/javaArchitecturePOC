@@ -1,0 +1,191 @@
+CREATE OR REPLACE FUNCTION getventasporcomprobantes(IN cliente character varying, IN fechadesde character varying, IN fechahasta character varying)
+  RETURNS TABLE(clienteid character varying, clienterazonsocial character varying, comprobantetipo character varying, numerocomprobante character varying, fecha timestamp without time zone, productoid character varying, productonombre character varying, cantidad double precision) AS
+$BODY$
+	SELECT ventas.clienteid, 
+		ventas.clienterazonsocial, 
+		ventas.comprobantetipo, 
+		ventas.numerocomprobante, 
+		ventas.fecha, 
+		ventas.productoid, 
+		ventas.productonombre, 
+		SUM(ventas.cantidad) FROM (
+		SELECT 'REMITO RETIRO' AS comprobantetipo,
+			remitos_retiro.numero AS numerocomprobante,
+			remitos_retiro.fecha_creacion AS fecha,
+			remitos_retiro.cliente AS clienteid,
+			clientes.razon_social AS clienterazonsocial,
+			productos.id AS productoid,
+			productos.nombre AS productonombre,
+			SUM(items_remito_retiro.cantidad) AS cantidad 
+		FROM remitos_retiro
+		INNER JOIN items_remito_retiro
+			ON remitos_retiro.id = items_remito_retiro.remito
+		INNER JOIN clientes
+			ON remitos_retiro.cliente = clientes.id 
+		INNER JOIN productos
+			ON items_remito_retiro.producto = productos.id
+		WHERE (remitos_retiro.cliente = '' || $1 || '')
+		AND (remitos_retiro.fecha_creacion BETWEEN $2::timestamp AND $3::timestamp)
+		GROUP BY remitos_retiro.numero,
+			 remitos_retiro.fecha_creacion,
+			 remitos_retiro.cliente,
+			 productos.id,
+			 productos.nombre,
+			 clientes.razon_social
+			 
+		UNION 
+		
+		SELECT 'REMITO STOCK' AS comprobantetipo,
+			remitos_stock.numero AS numerocomprobante,
+			remitos_stock.fecha_creacion AS fecha,
+			remitos_stock.cliente AS clienteid,
+			clientes.razon_social AS clienterazonsocial,
+			productos.id AS productoid,
+			productos.nombre AS productonombre,
+			SUM(items_remito_stock.cantidad) AS cantidad 
+		FROM remitos_stock
+		INNER JOIN items_remito_stock
+			ON remitos_stock.id = items_remito_stock.remito
+		INNER JOIN clientes
+			ON remitos_stock.cliente = clientes.id 
+		INNER JOIN productos
+			ON items_remito_stock.producto = productos.id
+		WHERE (remitos_stock.cliente = '' || $1 || '')
+		AND (remitos_stock.fecha_creacion BETWEEN $2::timestamp AND $3::timestamp)
+		GROUP BY remitos_stock.numero,
+			 remitos_stock.fecha_creacion,
+			 remitos_stock.cliente,
+			 productos.id,
+			 productos.nombre,
+			 clientes.razon_social
+
+		UNION 
+		
+		SELECT 'AJUSTE DE STOCK INCR. RR' AS comprobantetipo,
+			ajustes_de_stock.numero AS numerocomprobante,
+			ajustes_de_stock.fecha_creacion AS fecha,
+			ajustes_de_stock.cliente AS clienteid,
+			clientes.razon_social AS clienterazonsocial,
+			productos.id AS productoid,
+			productos.nombre AS productonombre,
+			SUM(items_ajustes_de_stock.cantidad) AS cantidad 
+		FROM ajustes_de_stock
+		INNER JOIN items_ajustes_de_stock
+			ON ajustes_de_stock.id = items_ajustes_de_stock.remito
+		INNER JOIN motivos_de_ajuste
+			ON motivos_de_ajuste.id = items_ajustes_de_stock.motivo_ajuste
+			AND motivos_de_ajuste.id = '<id motivo de ajuste tipo debito retiro>'
+		INNER JOIN clientes
+			ON ajustes_de_stock.cliente = clientes.id 
+		INNER JOIN productos
+			ON items_ajustes_de_stock.producto = productos.id
+		WHERE (ajustes_de_stock.cliente = '' || $1 || '')
+		AND (ajustes_de_stock.fecha_creacion BETWEEN $2::timestamp AND $3::timestamp)
+		GROUP BY ajustes_de_stock.numero,
+			 ajustes_de_stock.fecha_creacion,
+			 ajustes_de_stock.cliente,
+			 productos.id,
+			 productos.nombre,
+			 clientes.razon_social
+
+		UNION 
+		
+		SELECT 'AJUSTE DE STOCK INCR. RE' AS comprobantetipo,
+			ajustes_de_stock.numero AS numerocomprobante,
+			ajustes_de_stock.fecha_creacion AS fecha,
+			ajustes_de_stock.cliente AS clienteid,
+			clientes.razon_social AS clienterazonsocial,
+			productos.id AS productoid,
+			productos.nombre AS productonombre,
+			SUM(items_ajustes_de_stock.cantidad) AS cantidad 
+		FROM ajustes_de_stock
+		INNER JOIN items_ajustes_de_stock
+			ON ajustes_de_stock.id = items_ajustes_de_stock.remito
+		INNER JOIN motivos_de_ajuste
+			ON motivos_de_ajuste.id = items_ajustes_de_stock.motivo_ajuste
+			AND motivos_de_ajuste.id = '<id motivo de ajuste tipo debito entrega>'
+		INNER JOIN clientes
+			ON ajustes_de_stock.cliente = clientes.id 
+		INNER JOIN productos
+			ON items_ajustes_de_stock.producto = productos.id
+		WHERE (ajustes_de_stock.cliente = '' || $1 || '')
+		AND (ajustes_de_stock.fecha_creacion BETWEEN $2::timestamp AND $3::timestamp)
+		GROUP BY ajustes_de_stock.numero,
+			 ajustes_de_stock.fecha_creacion,
+			 ajustes_de_stock.cliente,
+			 productos.id,
+			 productos.nombre,
+			 clientes.razon_social
+
+		UNION 
+		
+		SELECT 'AJUSTE DE STOCK DECR. RR' AS comprobantetipo,
+			ajustes_de_stock.numero AS numerocomprobante,
+			ajustes_de_stock.fecha_creacion AS fecha,
+			ajustes_de_stock.cliente AS clienteid,
+			clientes.razon_social AS clienterazonsocial,
+			productos.id AS productoid,
+			productos.nombre AS productonombre,
+			0 - SUM(items_ajustes_de_stock.cantidad) AS cantidad 
+		FROM ajustes_de_stock
+		INNER JOIN items_ajustes_de_stock
+			ON ajustes_de_stock.id = items_ajustes_de_stock.remito
+		INNER JOIN motivos_de_ajuste
+			ON motivos_de_ajuste.id = items_ajustes_de_stock.motivo_ajuste
+			AND motivos_de_ajuste.id = '<id motivo de ajuste tipo credito retiro>'
+		INNER JOIN clientes
+			ON ajustes_de_stock.cliente = clientes.id 
+		INNER JOIN productos
+			ON items_ajustes_de_stock.producto = productos.id
+		WHERE (ajustes_de_stock.cliente = '' || $1 || '')
+		AND (ajustes_de_stock.fecha_creacion BETWEEN $2::timestamp AND $3::timestamp)
+		GROUP BY ajustes_de_stock.numero,
+			 ajustes_de_stock.fecha_creacion,
+			 ajustes_de_stock.cliente,
+			 productos.id,
+			 productos.nombre,
+			 clientes.razon_social
+
+		UNION 
+		
+		SELECT 'AJUSTE DE STOCK DECR. RE' AS comprobantetipo,
+			ajustes_de_stock.numero AS numerocomprobante,
+			ajustes_de_stock.fecha_creacion AS fecha,
+			ajustes_de_stock.cliente AS clienteid,
+			clientes.razon_social AS clienterazonsocial,
+			productos.id AS productoid,
+			productos.nombre AS productonombre,
+			0 - SUM(items_ajustes_de_stock.cantidad) AS cantidad 
+		FROM ajustes_de_stock
+		INNER JOIN items_ajustes_de_stock
+			ON ajustes_de_stock.id = items_ajustes_de_stock.remito
+		INNER JOIN motivos_de_ajuste
+			ON motivos_de_ajuste.id = items_ajustes_de_stock.motivo_ajuste
+			AND motivos_de_ajuste.id = '<id motivo de ajuste tipo credito entrega>'
+		INNER JOIN clientes
+			ON ajustes_de_stock.cliente = clientes.id 
+		INNER JOIN productos
+			ON items_ajustes_de_stock.producto = productos.id
+		WHERE (ajustes_de_stock.cliente = '' || $1 || '')
+		AND (ajustes_de_stock.fecha_creacion BETWEEN $2::timestamp AND $3::timestamp)
+		GROUP BY ajustes_de_stock.numero,
+			 ajustes_de_stock.fecha_creacion,
+			 ajustes_de_stock.cliente,
+			 productos.id,
+			 productos.nombre,
+			 clientes.razon_social
+	 ) AS ventas
+	GROUP BY ventas.clienteid, 
+		 ventas.clienterazonsocial, 
+		 ventas.comprobantetipo, 
+		 ventas.numerocomprobante, 
+		 ventas.fecha, 
+		 ventas.productoid, 
+		 ventas.productonombre;
+$BODY$
+  LANGUAGE sql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION getventasporcomprobantes(character varying, character varying, character varying)
+  OWNER TO postgres;
+

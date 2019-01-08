@@ -1,0 +1,49 @@
+
+-- Saldos de productos con cliente y camion
+
+select s.saldo, p.descripcion, camion.nombre as camion, cliente.razon_social as cliente 
+from saldos s 
+left join productos p on s.producto = p.id
+left join cuentas_corriente cc on s.cuenta_corriente = cc.id
+left join camiones camion on cc.camion = camion.id
+left join clientes cliente on cc.cliente = cliente.id
+
+----------------------------------------------
+---- RESET DE PRODUCTOS DE CLIENTES Y CAMIONES
+
+delete from clientes_productos;
+delete from camiones_productos;
+
+----------------------------------------
+---- RESET DE MOVIMIENTOS Y COMPROBANTES
+
+delete from reposiciones;
+
+delete from movimientoscc;
+
+delete from saldos;
+
+delete from saldos_pde;
+
+delete from dias_alquilados;
+
+delete from despachos_remitos_clientes;
+delete from despachos_remitos_camion;
+delete from despachos_alquileres;
+delete from despachos;
+
+delete from items_alquiler;
+delete from items_devolucion;
+delete from items_prestamo;
+delete from items_remito_entrega;
+delete from items_remito_entrega_camion;
+delete from items_remito_retiro;
+delete from items_ajustes_de_stock;
+
+delete from alquileres;
+delete from devoluciones;
+delete from prestamos;
+delete from remitos_entrega;
+delete from remitos_entrega_camion;
+delete from remitos_retiro;
+delete from ajustes_de_stock;

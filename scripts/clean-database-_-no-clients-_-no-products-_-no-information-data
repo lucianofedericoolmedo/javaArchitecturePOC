@@ -1,0 +1,156 @@
+﻿/*
+	FOR RUNNIG SCRIPT
+
+	psql -h localhost -U postgres -d consolidarprod -a -f clean-database-_-no-clients-_-no-products-_-no-information-data
+
+*/
+
+/*
+-- SELECT DATA
+
+-- Movimientos de cuenta corriente
+SELECT * FROM movimientoscc;
+
+-- Ajustes de stock
+SELECT * FROM items_ajustes_de_stock
+SELECT * FROM ajustes_de_stock
+
+-- Alquileres
+SELECT * FROM dias_alquilados
+SELECT * FROM items_alquiler
+SELECT * FROM alquileres
+
+-- Devoluciones
+SELECT * FROM items_devolucion
+SELECT * FROM devoluciones
+
+-- Remitos entrega
+SELECT * FROM items_remito_entrega
+SELECT * FROM remitos_entrega
+
+-- Remitos entrega camion
+SELECT * FROM items_remito_entrega_camion
+SELECT * FROM remitos_entrega_camion
+
+-- Remitos stock
+SELECT * FROM items_remito_stock
+SELECT * FROM remitos_stock
+
+-- Remitos retiro
+SELECT * FROM items_remito_retiro
+SELECT * FROM remitos_retiro
+
+-- Despachos
+SELECT * FROM despachos_alquileres
+SELECT * FROM despachos_prestamos
+SELECT * FROM despachos_remitos_camion
+SELECT * FROM despachos_remitos_clientes
+SELECT * FROM despachos_remitos_stock
+SELECT * FROM despachos
+
+-- Saldos
+SELECT * FROM saldos
+SELECT * FROM saldos_pde
+
+-- Adelantos
+SELECT * FROM adelantos
+
+-- Movimientos de stocks
+SELECT * FROM movimientos_stocks
+
+-- Lecturas de control
+SELECT * FROM lecturas_control_items
+SELECT * FROM lecturas_control
+
+-- Solicitudes stock
+SELECT * FROM solicitudes_Stock
+
+-- Ingresos stock costura y partes
+SELECT * FROM items_parte
+SELECT * FROM partes
+SELECT * FROM ingresos_stock_costura
+SELECT * FROM items_ingreso_stock
+
+-- Ordenes lavado
+SELECT * FROM ordenes_lavado_items
+SELECT * FROM ordenes_lavado
+
+-- Reposiciones
+SELECT * FROM reposiciones
+
+*/
+
+
+
+-- DELETE DATA
+
+-- Movimientos de cuenta corriente
+DELETE FROM movimientoscc;
+
+-- Reposiciones
+DELETE FROM reposiciones;
+
+-- Despachos
+DELETE FROM despachos_alquileres;
+DELETE FROM despachos_prestamos;
+DELETE FROM despachos_remitos_camion;
+DELETE FROM despachos_remitos_clientes;
+DELETE FROM despachos_remitos_stock;
+DELETE FROM despachos;
+
+-- Ajustes de stock
+DELETE FROM items_ajustes_de_stock;
+DELETE FROM ajustes_de_stock;
+
+-- Alquileres
+DELETE FROM dias_alquilados;
+DELETE FROM items_alquiler;
+DELETE FROM alquileres;
+
+-- Devoluciones
+DELETE FROM items_devolucion;
+DELETE FROM devoluciones;
+
+-- Remitos entrega
+DELETE FROM items_remito_entrega;
+DELETE FROM remitos_entrega;
+
+-- Remitos entrega camion
+DELETE FROM items_remito_entrega_camion;
+DELETE FROM remitos_entrega_camion;
+
+-- Remitos stock
+DELETE FROM items_remito_stock;
+DELETE FROM remitos_stock;
+
+-- Remitos retiro
+DELETE FROM items_remito_retiro;
+DELETE FROM remitos_retiro;
+
+-- Saldos
+DELETE FROM saldos;
+DELETE FROM saldos_pde;
+
+-- Adelantos
+DELETE FROM adelantos;
+
+-- Movimientos de stocks
+DELETE FROM movimientos_stocks;
+
+-- Lecturas de control
+DELETE FROM lecturas_control_items;
+DELETE FROM lecturas_control;
+
+-- Solicitudes stock
+DELETE FROM solicitudes_Stock;
+
+-- Ingresos stock costura y partes
+DELETE FROM items_parte;
+DELETE FROM partes;
+DELETE FROM items_ingreso_stock;
+DELETE FROM ingresos_stock_costura;
+
+-- Ordenes lavado
+DELETE FROM ordenes_lavado_items;
+DELETE FROM ordenes_lavado;
+

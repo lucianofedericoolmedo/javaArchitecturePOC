@@ -1,0 +1,9 @@
+INSERT INTO tipos (id, state, codigo, valor) VALUES
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, '101', 'Ropa chica'),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, '102', 'Ropa cirugia'),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, '103', 'Ropa blanca'),
+(md5(random()::text || clock_timestamp()::text)::uuid, 2, '104', 'Sabanas')
+
+
+INSERT INTO tipos (id, state, codigo, valor) VALUES (md5(random()::text || clock_timestamp()::text)::uuid, 2, '101', 'Ropa chica'), (md5(random()::text || clock_timestamp()::text)::uuid, 2, '102', 'Ropa cirugia'), (md5(random()::text || clock_timestamp()::text)::uuid, 2, '103', 'Ropa blanca'), (md5(random()::text || clock_timestamp()::text)::uuid, 2, '104', 'Sabanas');
+

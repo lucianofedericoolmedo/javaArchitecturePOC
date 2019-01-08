@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd        
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+        
+    <util:list id="publicMethodsRules">
+        <bean class="ar.com.mobeats.consolidar.backend.service.aspect.PublicRule">
+            <property name="httpMethod" value="GET" />
+            <property name="endpoints">
+                <util:list>
+                    <value>.*/users/profile/image/.*</value>
+                    <value>.*/localidades.*</value>
+                </util:list>
+            </property>
+        </bean>
+        
+        <bean class="ar.com.mobeats.consolidar.backend.service.aspect.PublicRule">
+            <property name="httpMethod" value="POST" />
+            <property name="endpoints">
+                <util:list>
+                    <value>.*/localidades.*</value>
+                </util:list>
+            </property>
+        </bean>
+        
+        <!-- OPTIONS -->
+        
+        <bean class="ar.com.mobeats.consolidar.backend.service.aspect.PublicRule">
+            <property name="httpMethod" value="OPTIONS" />
+            <property name="endpoints">
+                <util:list>
+                    <value>.*</value>
+                </util:list>
+            </property>
+        </bean>
+
+    	<!-- Template example -->
+<!--         <bean class="ar.com.mobeats.consolidar.backend.service.aspect.PublicRule"> -->
+<!--             <property name="httpMethod" value="GET" /> -->
+<!--             <property name="endpoints"> -->
+<!--                 <util:list> -->
+<!--                     <value>.*</value> -->
+<!--                 </util:list> -->
+<!--             </property> -->
+<!--         </bean> -->
+<!--         <bean class="ar.com.mobeats.consolidar.backend.service.aspect.PublicRule"> -->
+<!--             <property name="httpMethod" value="POST" /> -->
+<!--             <property name="endpoints"> -->
+<!--                 <util:list> -->
+<!--                     <value>${api.context}/upload/docs</value> -->
+<!--                 </util:list> -->
+<!--             </property> -->
+<!--         </bean> -->
+    </util:list>        
+        
+</beans>

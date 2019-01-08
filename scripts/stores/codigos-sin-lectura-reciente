@@ -1,0 +1,31 @@
+-- Function: codigos_sin_lectura_desde(timestamp without time zone, character varying)
+
+-- DROP FUNCTION codigos_sin_lectura_desde(timestamp without time zone, character varying);
+
+CREATE OR REPLACE FUNCTION codigos_sin_lectura_desde(IN fdesde timestamp without time zone, IN lugarid character varying)
+  RETURNS TABLE(codigo character varying, fecha_creacion timestamp without time zone, nombre character varying, lugar character varying) AS
+$BODY$
+BEGIN
+ RETURN QUERY 
+ 	SELECT codigorfid as codigo, ultimas_lecturas.fecha_creacion as fecha_creacion, p.nombre as nombre, ll.nombre as lugar FROM (
+		SELECT lrr.codigo, lrr.fecha_creacion, lrr.lugar FROM lecturas_registros_rfid lrr
+		INNER JOIN (
+			SELECT subLrr.codigo, MAX(subLrr.fecha_creacion) AS max_fecha FROM lecturas_registros_rfid subLrr
+			WHERE ($2 = '' OR subLrr.lugar = $2)
+			GROUP BY subLrr.codigo
+		) AS maximas
+		ON lrr.codigo = maximas.codigo
+		AND lrr.fecha_creacion = maximas.max_fecha
+		AND maximas.max_fecha <  $1 
+	) AS ultimas_lecturas
+	JOIN registros_rfid rr ON codigorfid = ultimas_lecturas.codigo AND rr.estado = 'ACTUAL'
+	JOIN productos p ON rr.producto = p.id
+	JOIN lugares_lectura ll ON ultimas_lecturas.lugar = ll.id
+	ORDER BY ultimas_lecturas.fecha_creacion DESC;
+END; $BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION codigos_sin_lectura_desde(timestamp without time zone, character varying)
+  OWNER TO postgres;
+

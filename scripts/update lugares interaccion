@@ -1,0 +1,9 @@
+SELECT * FROM lugares_lectura
+
+UPDATE lugares_lectura
+SET interaccion_estado_codigo = 'HABILITA'
+WHERE id = 'a5442411-fbcd-43f9-a234-6ab2cab4db67'
+
+UPDATE lugares_lectura
+SET interaccion_estado_codigo = 'DESHABILITA'
+WHERE id = '16350eab-b644-9e18-1e88-80fe82828017'

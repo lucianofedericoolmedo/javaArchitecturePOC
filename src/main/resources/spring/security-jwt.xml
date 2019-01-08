@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context.xsd        
+        http://cxf.apache.org/jaxrs                     http://cxf.apache.org/schemas/jaxrs.xsd
+        http://www.springframework.org/schema/util      http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+        
+    <bean id="tokenHandler" class="ar.com.mobeats.consolidar.backend.service.security.TokenHandler">
+        <property name="headerContentType" value="text/plain"/>
+        <property name="simetricKey" value="eb77effd-26bb-46f8-bb0f-f3b4f4d63531"/>
+        <property name="expirationInMinutes" value="1440"/>
+        <property name="expireAtMidnight" value="true"/>
+        <property name="issuer" value="Trazabilidad Server"/>
+        <property name="audience" value="http://modevil.com.ar/trazabilidad/services"/>
+        <property name="subject" value="Trazabilidad Client"/>
+    </bean>
+
+</beans>

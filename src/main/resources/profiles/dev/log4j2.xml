@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<Configuration>
+
+	<!-- APPENDERS DEFINITIONS -->
+	<Appenders>
+	    <!-- CONSOLE APPENDER -->
+	    <Console name="consoleAppender" target="System.out">
+	        <PatternLayout>
+	        	<Pattern>[%d{dd/MM/yyyy HH:mm:ss}] %highlight{[%level]}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} [%c]:%L - %m%n</Pattern>
+	        </PatternLayout>
+	    </Console>
+	    
+	    <!-- FILE: Appender for RequestInfo log -->
+	    <RollingFile name="requestInfoAppender" 
+	    	fileName="${catalina.base}/logs/requestInfo.log"
+	    	filePattern="${catalina.base}/logs/requestInfo.%d{MM-dd-yyyy}-%i.log">
+	        <PatternLayout>
+	        	<Pattern>[%d{dd/MM/yyyy HH:mm:ss}] %m%n%n</Pattern>
+	        </PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+	    </RollingFile>
+	    
+	    <!-- FILE: Appender for Services log -->
+	    <RollingFile name="servicesAppender" 
+	    	fileName="${catalina.base}/logs/consolidar/service/services-logs.log"
+	    	filePattern="${catalina.base}/logs/consolidar/service/services-logs.%d{MM-dd-yyyy}-%i.log">
+	        <PatternLayout>
+	        	<Pattern>[%d{dd/MM/yyyy HH:mm:ss}] %highlight{[%level]}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} [%c]:%L - %m%n</Pattern>
+	        </PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+	    </RollingFile>
+	    
+	    <!-- FILE: Appender for Rest log -->
+	    <RollingFile name="restsAppender" 
+	    	fileName="${catalina.base}/logs/consolidar/rest/rests-logs.log"
+	    	filePattern="${catalina.base}/logs/consolidar/rest/rests-logs.%d{MM-dd-yyyy}-%i.log">
+	        <PatternLayout>
+	        	<Pattern>[%d{dd/MM/yyyy HH:mm:ss}] %highlight{[%level]}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} [%c]:%L - %m%n</Pattern>
+	        </PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+	    </RollingFile>
+	    
+	    <!-- FILE: Appender for Model log -->
+	    <RollingFile name="modelsAppender" 
+	    	fileName="${catalina.base}/logs/consolidar/model/models-logs.log"
+	    	filePattern="${catalina.base}/logs/consolidar/model/models-logs.%d{MM-dd-yyyy}-%i.log">
+	        <PatternLayout>
+	            <Pattern>[%d{dd/MM/yyyy HH:mm:ss}] %highlight{[%level]}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} [%c]:%L - %m%n</Pattern>
+	        </PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+	    </RollingFile>
+	    
+	    <!-- FILE: Appender for Repository log -->
+	    <RollingFile name="repositoriesAppender" 
+	    	fileName="${catalina.base}/logs/consolidar/repository/repositories-logs.log"
+	    	filePattern="${catalina.base}/logs/consolidar/repository/repositories-logs.%d{MM-dd-yyyy}-%i.log">
+	        <PatternLayout>
+	            <Pattern>[%d{dd/MM/yyyy HH:mm:ss}] %highlight{[%level]}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} [%c]:%L - %m%n</Pattern>
+	        </PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+	    </RollingFile>
+	    
+	    <GELF name="graylog"
+	        hostName="logs.mobeats.com.ar"
+	        port="12205">
+	        <KeyValuePair key="additionalFields" value="{'customer' : 'consolidar', 'environment': 'PROD', 'application': 'Producción - jvm'}"/>
+	        <KeyValuePair key="extractStacktrace" value="true"/>
+	        <KeyValuePair key="addExtendedInformation" value="true"/>
+	    </GELF>
+    </Appenders>
+    
+    <!-- LoggerS DEFINITIONS -->
+   	<!-- Loggers Discriminados por package -->
+	<!-- 
+		El siguiente Logger es el padre de todos los package dentro de 'backend'. 
+		Por lo tanto cambiando la propiedad 'value' afectara al nivel de log de todos los herederos.
+		Si se desea APAGAR el log por consola, solo se debe setear la propiedad additivity en FALSE.
+	 -->
+	<Loggers>
+	    <Logger name="ar.com.mobeats.consolidar.backend" additivity="true" level="INFO">
+	    </Logger>
+	        
+	    <Logger name="ar.com.mobeats.consolidar.backend.service" additivity="true">
+	        <AppenderRef ref="servicesAppender" />
+	    </Logger>
+	    
+	    <Logger name="ar.com.mobeats.consolidar.backend.service.rest" additivity="true">
+	        <AppenderRef ref="restsAppender" />
+	    </Logger>
+	    
+	    <Logger name="ar.com.mobeats.consolidar.backend.model" additivity="true">
+	        <AppenderRef ref="modelsAppender" />
+	    </Logger>
+	    
+	    <Logger name="ar.com.mobeats.consolidar.backend.repository" additivity="true">
+	        <AppenderRef ref="repositoriesAppender" />
+	    </Logger>
+	    
+	    <Root level="INFO">
+	        <AppenderRef ref="consoleAppender" />
+	        <!-- AppenderRef ref="graylog" / -->
+	    </Root>
+	</Loggers>
+
+</Configuration>

@@ -1,0 +1,5 @@
+INSERT INTO lugares_lectura (id, state, comprobante_por_defecto, nombre)
+VALUES (md5(random()::text || clock_timestamp()::text)::uuid, 2, 'Remito Entrega', 'Entrada Nosocomio')
+
+INSERT INTO lugar_lectura_tipos_remito_permitido (lugar_lectura, tipos_remito_permitido)
+VALUES ('392d5eb4-6130-c363-0ce6-ff8f53c5e768', 0)

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="dev (generated)" id="localidad-tipoentidad-tipoproducto">
+         <sql>
+			INSERT INTO localidades (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8492-0000000c1j6h', NULL, NULL, 2, NULL, NULL, 'Quilmes', 'Quilmes');
+			INSERT INTO localidades (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8492-3ed0000c1j6h', NULL, NULL, 2, NULL, NULL, 'Berazategui', 'Berazategui');
+			INSERT INTO localidades (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8492-8uj0000c1j6h', NULL, NULL, 2, NULL, NULL, 'Avellaneda', 'Avellaneda');
+			INSERT INTO localidades (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8492-ca80000c1j6h', NULL, NULL, 2, NULL, NULL, 'Lanús', 'Lanús');
+			
+			INSERT INTO tipos_entidades (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8n9s-0000000c1j6h', NULL, NULL, 2, NULL, NULL, 'P. Fijo', 'Personal Fijo');
+			INSERT INTO tipos_entidades (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8mlo-0000000c1j6h', NULL, NULL, 2, NULL, NULL, 'P. Temporal', 'Personal Temporal');
+			INSERT INTO tipos_entidades (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8233-0000000c1j6h', NULL, NULL, 2, NULL, NULL, 'Área', 'Área');
+				
+			INSERT INTO tipos (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8n9s-0000000c1j6h', NULL, NULL, 2, NULL, NULL, 'SAB', 'Sábana');
+			INSERT INTO tipo_producto (tipo_id) VALUES ('fd7h8sio-bbc1-59ca-8n9s-0000000c1j6h');
+			INSERT INTO tipos (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8mlo-0000000c1j6h', NULL, NULL, 2, NULL, NULL, 'AMB', 'Ambo');
+			INSERT INTO tipo_producto (tipo_id) VALUES ('fd7h8sio-bbc1-59ca-8mlo-0000000c1j6h');
+			INSERT INTO tipos (id, fecha_actualizacion, fecha_creacion, state, usuario_actualizo_id, usuario_creacion_id, codigo, valor) VALUES ('fd7h8sio-bbc1-59ca-8233-0000000c1j6h', NULL, NULL, 2, NULL, NULL, 'FUN', 'Funda');
+			INSERT INTO tipo_producto (tipo_id) VALUES ('fd7h8sio-bbc1-59ca-8233-0000000c1j6h');
+         </sql>
+
+         <rollback>
+         	DELETE FROM localidades where id='fd7h8sio-bbc1-59ca-8492-0000000c1j6h';
+			DELETE FROM localidades where id='fd7h8sio-bbc1-59ca-8492-3ed0000c1j6h';
+			DELETE FROM localidades where id='fd7h8sio-bbc1-59ca-8492-8uj0000c1j6h';
+			DELETE FROM localidades where id='fd7h8sio-bbc1-59ca-8492-ca80000c1j6h';
+			
+			DELETE FROM tipos_entidades where id='fd7h8sio-bbc1-59ca-8n9s-0000000c1j6h';
+			DELETE FROM tipos_entidades where id='fd7h8sio-bbc1-59ca-8mlo-0000000c1j6h';
+			DELETE FROM tipos_entidades where id='fd7h8sio-bbc1-59ca-8233-0000000c1j6h';
+			
+			DELETE FROM tipo_producto where tipo_id='fd7h8sio-bbc1-59ca-8n9s-0000000c1j6h';
+			DELETE FROM tipos where id='fd7h8sio-bbc1-59ca-8n9s-0000000c1j6h';
+			DELETE FROM tipo_producto where tipo_id='fd7h8sio-bbc1-59ca-8mlo-0000000c1j6h';
+			DELETE FROM tipos where id='fd7h8sio-bbc1-59ca-8mlo-0000000c1j6h';
+			DELETE FROM tipo_producto where tipo_id='fd7h8sio-bbc1-59ca-8233-0000000c1j6h';
+			DELETE FROM tipos where id='fd7h8sio-bbc1-59ca-8233-0000000c1j6h';
+         </rollback>
+    </changeSet>
+</databaseChangeLog>

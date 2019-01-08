@@ -1,0 +1,1 @@
+psql -h localhost -U postgres -d consolidarprod -a "\COPY (SELECT rr.codigorfid as EPC, p.nombre as PRODUCTO FROM registros_rfid rr INNER JOIN productos p ON rr.producto = p.id WHERE activo = TRUE) TO '/home/root/rfid_tags_dump/rfid_dump.csv' WITH CSV HEADER DELIMITER ';'"
